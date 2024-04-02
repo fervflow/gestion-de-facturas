@@ -8,5 +8,9 @@ namespace SistemaFactura.Conexion
 {
     internal class Conexion
     {
+        public Conexion()
+        {
+            MessageBox.Show("hola mundo");
+        }
     }
 }
