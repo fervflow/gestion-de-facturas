@@ -28,13 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormLogin));
             panel1 = new Panel();
             label2 = new Label();
             label1 = new Label();
-            txtUsuario = new TextBox();
+            txtNombre = new TextBox();
             txtNit = new TextBox();
             btnAcceder = new Button();
+            pictureBox1 = new PictureBox();
+            label3 = new Label();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -42,7 +46,7 @@
             panel1.BackColor = Color.Orange;
             panel1.Controls.Add(label2);
             panel1.Controls.Add(label1);
-            panel1.Controls.Add(txtUsuario);
+            panel1.Controls.Add(txtNombre);
             panel1.Controls.Add(txtNit);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
@@ -74,12 +78,12 @@
             label1.TabIndex = 2;
             label1.Text = "Usuario:";
             // 
-            // txtUsuario
+            // txtNombre
             // 
-            txtUsuario.Location = new Point(103, 11);
-            txtUsuario.Name = "txtUsuario";
-            txtUsuario.Size = new Size(100, 23);
-            txtUsuario.TabIndex = 0;
+            txtNombre.Location = new Point(103, 11);
+            txtNombre.Name = "txtNombre";
+            txtNombre.Size = new Size(100, 23);
+            txtNombre.TabIndex = 0;
             // 
             // txtNit
             // 
@@ -92,32 +96,57 @@
             // 
             // btnAcceder
             // 
-            btnAcceder.BackColor = Color.Red;
+            btnAcceder.BackColor = Color.FromArgb(0, 17, 61);
             btnAcceder.FlatAppearance.BorderSize = 0;
             btnAcceder.FlatStyle = FlatStyle.Flat;
             btnAcceder.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnAcceder.ForeColor = SystemColors.ControlLightLight;
-            btnAcceder.Location = new Point(289, 117);
+            btnAcceder.Location = new Point(312, 119);
             btnAcceder.Name = "btnAcceder";
             btnAcceder.Size = new Size(110, 30);
             btnAcceder.TabIndex = 2;
             btnAcceder.Text = "ACCEDER";
             btnAcceder.UseVisualStyleBackColor = false;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(12, 64);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(103, 85);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 3;
+            pictureBox1.TabStop = false;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.ForeColor = SystemColors.AppWorkspace;
+            label3.Location = new Point(347, 50);
+            label3.Name = "label3";
+            label3.Size = new Size(75, 15);
+            label3.TabIndex = 4;
+            label3.Text = "JEELM©2024";
+            // 
             // FormLogin
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(434, 161);
+            Controls.Add(label3);
+            Controls.Add(pictureBox1);
             Controls.Add(btnAcceder);
             Controls.Add(panel1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximumSize = new Size(450, 200);
             MinimumSize = new Size(450, 200);
             Name = "FormLogin";
             Text = "Ingresar";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -125,8 +154,10 @@
         private Panel panel1;
         private Label label2;
         private Label label1;
-        private TextBox txtUsuario;
+        private TextBox txtNombre;
         private TextBox txtNit;
         private Button btnAcceder;
+        private PictureBox pictureBox1;
+        private Label label3;
     }
 }
