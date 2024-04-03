@@ -65,11 +65,12 @@
             // txtNit
             // 
             txtNit.Location = new Point(144, 12);
-            txtNit.MaxLength = 15;
+            txtNit.MaxLength = 12;
             txtNit.Name = "txtNit";
-            txtNit.PasswordChar = '*';
             txtNit.Size = new Size(175, 23);
             txtNit.TabIndex = 1;
+            txtNit.TextChanged += txtNit_TextChanged;
+            txtNit.KeyPress += txtNit_KeyPress;
             // 
             // btnAcceder
             // 
