@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormGenerarFactura));
             fileSystemWatcher1 = new FileSystemWatcher();
             panel1 = new Panel();
+            label9 = new Label();
             textBox1 = new TextBox();
             textBox2 = new TextBox();
             dateTimePicker1 = new DateTimePicker();
@@ -49,9 +50,10 @@
             label7 = new Label();
             label8 = new Label();
             panel2 = new Panel();
-            label9 = new Label();
             pictureBox1 = new PictureBox();
             label10 = new Label();
+            label11 = new Label();
+            comboBox1 = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)fileSystemWatcher1).BeginInit();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
@@ -73,6 +75,18 @@
             panel1.Size = new Size(534, 54);
             panel1.TabIndex = 0;
             // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.BackColor = Color.Orange;
+            label9.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label9.ForeColor = SystemColors.ControlLightLight;
+            label9.Location = new Point(12, 9);
+            label9.Name = "label9";
+            label9.Size = new Size(82, 25);
+            label9.TabIndex = 20;
+            label9.Text = "Factura:";
+            // 
             // textBox1
             // 
             textBox1.Location = new Point(249, 102);
@@ -89,28 +103,28 @@
             // 
             // dateTimePicker1
             // 
-            dateTimePicker1.Location = new Point(175, 186);
+            dateTimePicker1.Location = new Point(176, 210);
             dateTimePicker1.Name = "dateTimePicker1";
             dateTimePicker1.Size = new Size(217, 23);
             dateTimePicker1.TabIndex = 3;
             // 
             // textBox3
             // 
-            textBox3.Location = new Point(249, 226);
+            textBox3.Location = new Point(250, 255);
             textBox3.Name = "textBox3";
             textBox3.Size = new Size(143, 23);
             textBox3.TabIndex = 4;
             // 
             // textBox4
             // 
-            textBox4.Location = new Point(249, 268);
+            textBox4.Location = new Point(250, 297);
             textBox4.Name = "textBox4";
             textBox4.Size = new Size(143, 23);
             textBox4.TabIndex = 5;
             // 
             // textBox5
             // 
-            textBox5.Location = new Point(249, 309);
+            textBox5.Location = new Point(250, 338);
             textBox5.Name = "textBox5";
             textBox5.Size = new Size(143, 23);
             textBox5.TabIndex = 6;
@@ -139,7 +153,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 12F);
-            label3.Location = new Point(81, 188);
+            label3.Location = new Point(82, 217);
             label3.Name = "label3";
             label3.Size = new Size(53, 21);
             label3.TabIndex = 10;
@@ -149,7 +163,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 12F);
-            label4.Location = new Point(85, 228);
+            label4.Location = new Point(86, 257);
             label4.Name = "label4";
             label4.Size = new Size(59, 21);
             label4.TabIndex = 11;
@@ -159,7 +173,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 12F);
-            label5.Location = new Point(85, 270);
+            label5.Location = new Point(86, 299);
             label5.Name = "label5";
             label5.Size = new Size(133, 21);
             label5.TabIndex = 12;
@@ -169,7 +183,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 12F);
-            label6.Location = new Point(85, 311);
+            label6.Location = new Point(86, 340);
             label6.Name = "label6";
             label6.Size = new Size(154, 21);
             label6.TabIndex = 13;
@@ -238,18 +252,6 @@
             panel2.Size = new Size(534, 34);
             panel2.TabIndex = 19;
             // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.BackColor = Color.Orange;
-            label9.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label9.ForeColor = SystemColors.ControlLightLight;
-            label9.Location = new Point(12, 9);
-            label9.Name = "label9";
-            label9.Size = new Size(82, 25);
-            label9.TabIndex = 20;
-            label9.Text = "Factura:";
-            // 
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
@@ -270,11 +272,30 @@
             label10.TabIndex = 21;
             label10.Text = "JEELM©2024";
             // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new Point(86, 181);
+            label11.Name = "label11";
+            label11.Size = new Size(46, 15);
+            label11.TabIndex = 22;
+            label11.Text = "Factura";
+            // 
+            // comboBox1
+            // 
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(249, 178);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(144, 23);
+            comboBox1.TabIndex = 23;
+            // 
             // FormGenerarFactura
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(534, 511);
+            Controls.Add(comboBox1);
+            Controls.Add(label11);
             Controls.Add(label10);
             Controls.Add(pictureBox1);
             Controls.Add(panel2);
@@ -329,5 +350,7 @@
         private PictureBox pictureBox1;
         private Label label9;
         private Label label10;
+        private Label label11;
+        private ComboBox comboBox1;
     }
 }

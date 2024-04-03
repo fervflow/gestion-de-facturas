@@ -31,8 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormLogin));
             panel1 = new Panel();
             label2 = new Label();
-            label1 = new Label();
-            txtNombre = new TextBox();
             txtNit = new TextBox();
             btnAcceder = new Button();
             pictureBox1 = new PictureBox();
@@ -45,8 +43,6 @@
             // 
             panel1.BackColor = Color.Orange;
             panel1.Controls.Add(label2);
-            panel1.Controls.Add(label1);
-            panel1.Controls.Add(txtNombre);
             panel1.Controls.Add(txtNit);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
@@ -60,38 +56,19 @@
             label2.BackColor = Color.Orange;
             label2.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = SystemColors.ControlLightLight;
-            label2.Location = new Point(232, 14);
+            label2.Location = new Point(84, 15);
             label2.Name = "label2";
             label2.Size = new Size(60, 20);
             label2.TabIndex = 3;
             label2.Text = "NIT/CI:";
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.BackColor = Color.Orange;
-            label1.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = SystemColors.ControlLightLight;
-            label1.Location = new Point(35, 14);
-            label1.Name = "label1";
-            label1.Size = new Size(67, 20);
-            label1.TabIndex = 2;
-            label1.Text = "Usuario:";
-            // 
-            // txtNombre
-            // 
-            txtNombre.Location = new Point(103, 11);
-            txtNombre.Name = "txtNombre";
-            txtNombre.Size = new Size(100, 23);
-            txtNombre.TabIndex = 0;
-            // 
             // txtNit
             // 
-            txtNit.Location = new Point(292, 11);
+            txtNit.Location = new Point(144, 12);
             txtNit.MaxLength = 15;
             txtNit.Name = "txtNit";
             txtNit.PasswordChar = '*';
-            txtNit.Size = new Size(121, 23);
+            txtNit.Size = new Size(175, 23);
             txtNit.TabIndex = 1;
             // 
             // btnAcceder
@@ -153,8 +130,6 @@
 
         private Panel panel1;
         private Label label2;
-        private Label label1;
-        private TextBox txtNombre;
         private TextBox txtNit;
         private Button btnAcceder;
         private PictureBox pictureBox1;
