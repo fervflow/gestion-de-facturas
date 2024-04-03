@@ -1,3 +1,6 @@
+
+using System;
+using System.Windows.Forms;
 namespace SistemaFactura
 {
     public partial class FormLogin : Form
@@ -20,7 +23,7 @@ namespace SistemaFactura
 
         private void txtNit_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsNumber(e.KeyChar))
+            if (!char.IsNumber(e.KeyChar) && e.KeyChar != (char)Keys.Back)
             {
                 e.Handled = true;
             }
