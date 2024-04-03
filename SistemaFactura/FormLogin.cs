@@ -6,5 +6,11 @@ namespace SistemaFactura
         {
             InitializeComponent();
         }
+
+        private void btnAcceder_Click(object sender, EventArgs e)
+        {
+            FormRegistrarUsuario formRegistrarUsuario = new FormRegistrarUsuario();
+            formRegistrarUsuario.ShowDialog();
+        }
     }
 }
