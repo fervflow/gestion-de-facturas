@@ -433,6 +433,7 @@
             Controls.Add(tbAutorizacion);
             Controls.Add(tbNit);
             Controls.Add(panel1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "RegistrarFactura";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Generar Factura";

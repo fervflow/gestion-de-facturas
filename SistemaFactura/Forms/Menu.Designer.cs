@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Menu));
             panel1 = new Panel();
             btnVerLista = new Button();
             btnRegistrarFact = new Button();
@@ -104,6 +105,7 @@
             ClientSize = new Size(788, 569);
             Controls.Add(pContenedor);
             Controls.Add(panel1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Menu";
             Text = "Menu";
             panel1.ResumeLayout(false);

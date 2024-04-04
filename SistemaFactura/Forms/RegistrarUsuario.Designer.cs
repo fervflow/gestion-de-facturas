@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegistrarUsuario));
             lbWarninig = new Label();
             lbNombreRazon = new Label();
             tbNombreRazon = new TextBox();
@@ -146,7 +147,7 @@
             tbNit.Text = "000000000000";
             tbNit.TextAlign = HorizontalAlignment.Center;
             // 
-            // FormRegistrarUsuario
+            // RegistrarUsuario
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -159,8 +160,9 @@
             Controls.Add(tbNombreRazon);
             Controls.Add(lbNombreRazon);
             Controls.Add(panel1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
-            Name = "FormRegistrarUsuario";
+            Name = "RegistrarUsuario";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Registrarse";
             panel1.ResumeLayout(false);
