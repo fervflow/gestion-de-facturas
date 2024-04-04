@@ -62,6 +62,7 @@
             btnVerLista.TabIndex = 15;
             btnVerLista.Text = "VER LISTA DE FACTURAS";
             btnVerLista.UseVisualStyleBackColor = false;
+            btnVerLista.Click += btnVerLista_Click;
             // 
             // btnRegistrarFact
             // 
@@ -84,14 +85,14 @@
             pContenedor.Dock = DockStyle.Fill;
             pContenedor.Location = new Point(0, 54);
             pContenedor.Name = "pContenedor";
-            pContenedor.Size = new Size(788, 515);
+            pContenedor.Size = new Size(788, 525);
             pContenedor.TabIndex = 3;
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.ForeColor = SystemColors.ControlDarkDark;
-            label2.Location = new Point(706, 481);
+            label2.Location = new Point(710, 501);
             label2.Name = "label2";
             label2.Size = new Size(75, 15);
             label2.TabIndex = 9;
@@ -101,7 +102,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(788, 569);
+            ClientSize = new Size(788, 579);
             Controls.Add(pContenedor);
             Controls.Add(panel1);
             Icon = (Icon)resources.GetObject("$this.Icon");

@@ -8,7 +8,7 @@ namespace SistemaFactura.Conexion
         public SqlConnection con { get; set; }
         public Database()
         {
-            cadenaConexion = @"Data Source=localhost;Initial Catalog=sistema_factura;User ID=daniel;Password=12345678";
+            cadenaConexion = @"Data Source=DESKTOP-FM8K9EG\SQLEXPRESS;Initial Catalog=sistema_factura;User ID=sa;Password=sa123";
             con = new SqlConnection(cadenaConexion);
         }
         public void conectarBD()
