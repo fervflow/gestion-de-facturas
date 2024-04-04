@@ -44,5 +44,10 @@ namespace SistemaFactura
                 e.Handled = true;
             }
         }
+
+        private void tbNit_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

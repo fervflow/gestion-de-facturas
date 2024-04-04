@@ -109,9 +109,10 @@
             tbNit.Name = "tbNit";
             tbNit.Size = new Size(170, 28);
             tbNit.TabIndex = 0;
+            tbNit.TextChanged += tbNit_TextChanged;
             tbNit.KeyPress += tbNit_KeyPress;
             // 
-            // FormLogin
+            // Login
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -120,7 +121,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximumSize = new Size(450, 200);
             MinimumSize = new Size(450, 200);
-            Name = "FormLogin";
+            Name = "Login";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Ingresar";
             panel1.ResumeLayout(false);
