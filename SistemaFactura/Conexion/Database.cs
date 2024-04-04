@@ -30,7 +30,7 @@ namespace SistemaFactura.Conexion
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al cerrar la Base de Datos:\n" + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error al cerrar la conexion a la Base de Datos:\n" + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
