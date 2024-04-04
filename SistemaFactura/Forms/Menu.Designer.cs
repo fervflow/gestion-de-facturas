@@ -79,6 +79,7 @@
             // 
             // pContenedor
             // 
+            pContenedor.AutoScroll = true;
             pContenedor.Controls.Add(label2);
             pContenedor.Dock = DockStyle.Fill;
             pContenedor.Location = new Point(0, 54);
