@@ -61,5 +61,50 @@ namespace SistemaFactura.Services
             }
             finally { database.cerrarBD(); }
         }
+
+        public List<Factura> ListaFacturas(long nit_usuario)
+        {
+            List<Factura> facturas = new List<Factura>();
+            try
+            {
+                database.conectarBD();
+                string sql = "SELECT nit_usuario, nit_emisor, numero_factura, cod_autorizacion, nombre_razon, " +
+                    "fecha_emision, monto, monto_imponible, cod_control, tipo_especifico, tipo_general " +
+                    "FROM factura WHERE nit_usuario = @NIT_USUARIO";
+                
+                using (SqlCommand cmd = new SqlCommand(sql, database.con))
+                {
+                    cmd.Parameters.AddWithValue("@NIT_USUARIO", nit_usuario);
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Factura factura = new Factura(
+                                Convert.ToInt64(reader["nit_usuario"]),
+                                Convert.ToInt64(reader["nit_emisor"]),
+                                Convert.ToInt32(reader["numero_factura"]),
+                                reader["cod_autorizacion"].ToString(),
+                                reader["nombre_razon"].ToString(),
+                                Convert.ToDateTime(reader["fecha_emision"]),
+                                Convert.ToDecimal(reader["monto"]),
+                                Convert.ToDecimal(reader["monto_imponible"]),
+                                reader["cod_control"].ToString(),
+                                Convert.ToBoolean(reader["tipo_especifico"]),
+                                Convert.ToBoolean(reader["tipo_general"])
+                            );
+
+                            facturas.Add(factura);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al obtener la lista de facturas: " + ex.Message);
+            }
+            finally { database.cerrarBD(); }
+            return facturas;
+        }
     }
 }
