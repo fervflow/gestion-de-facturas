@@ -32,32 +32,38 @@
             fileSystemWatcher1 = new FileSystemWatcher();
             panel1 = new Panel();
             label9 = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
+            tbNit = new TextBox();
+            tbAutorizacion = new TextBox();
             dateTimePicker1 = new DateTimePicker();
-            textBox3 = new TextBox();
-            textBox4 = new TextBox();
-            textBox5 = new TextBox();
+            tbMontoTotal = new TextBox();
+            tbMontoImponible = new TextBox();
+            tbCodigoControl = new TextBox();
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
             label4 = new Label();
             label5 = new Label();
             label6 = new Label();
-            button1 = new Button();
-            tbNombreRazon = new TextBox();
-            tbNit = new TextBox();
+            btRegistrar = new Button();
+            tbNombreUsuario = new TextBox();
+            tbNitUsuario = new TextBox();
             label7 = new Label();
             label8 = new Label();
             panel2 = new Panel();
             pictureBox1 = new PictureBox();
             label10 = new Label();
-            label11 = new Label();
-            comboBox1 = new ComboBox();
+            lab = new Label();
+            tbNumFactura = new TextBox();
+            tbRazonSocial = new Label();
+            textBox7 = new TextBox();
+            groupBox1 = new GroupBox();
+            btTrimestral = new RadioButton();
+            btMensual = new RadioButton();
             ((System.ComponentModel.ISupportInitialize)fileSystemWatcher1).BeginInit();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // fileSystemWatcher1
@@ -72,7 +78,7 @@
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(534, 54);
+            panel1.Size = new Size(717, 72);
             panel1.TabIndex = 0;
             // 
             // label9
@@ -87,53 +93,54 @@
             label9.TabIndex = 20;
             label9.Text = "Factura:";
             // 
-            // textBox1
+            // tbNit
             // 
-            textBox1.Location = new Point(249, 102);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(143, 23);
-            textBox1.TabIndex = 1;
+            tbNit.Location = new Point(249, 102);
+            tbNit.Name = "tbNit";
+            tbNit.Size = new Size(248, 23);
+            tbNit.TabIndex = 1;
+            tbNit.KeyPress += tbNit_KeyPress;
             // 
-            // textBox2
+            // tbAutorizacion
             // 
-            textBox2.Location = new Point(249, 141);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(143, 23);
-            textBox2.TabIndex = 2;
+            tbAutorizacion.Location = new Point(249, 181);
+            tbAutorizacion.Name = "tbAutorizacion";
+            tbAutorizacion.Size = new Size(248, 23);
+            tbAutorizacion.TabIndex = 2;
             // 
             // dateTimePicker1
             // 
-            dateTimePicker1.Location = new Point(176, 210);
+            dateTimePicker1.Location = new Point(250, 269);
             dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(217, 23);
+            dateTimePicker1.Size = new Size(247, 23);
             dateTimePicker1.TabIndex = 3;
             // 
-            // textBox3
+            // tbMontoTotal
             // 
-            textBox3.Location = new Point(250, 255);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(143, 23);
-            textBox3.TabIndex = 4;
+            tbMontoTotal.Location = new Point(250, 315);
+            tbMontoTotal.Name = "tbMontoTotal";
+            tbMontoTotal.Size = new Size(247, 23);
+            tbMontoTotal.TabIndex = 4;
             // 
-            // textBox4
+            // tbMontoImponible
             // 
-            textBox4.Location = new Point(250, 297);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(143, 23);
-            textBox4.TabIndex = 5;
+            tbMontoImponible.Location = new Point(250, 357);
+            tbMontoImponible.Name = "tbMontoImponible";
+            tbMontoImponible.Size = new Size(247, 23);
+            tbMontoImponible.TabIndex = 5;
             // 
-            // textBox5
+            // tbCodigoControl
             // 
-            textBox5.Location = new Point(250, 338);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(143, 23);
-            textBox5.TabIndex = 6;
+            tbCodigoControl.Location = new Point(250, 398);
+            tbCodigoControl.Name = "tbCodigoControl";
+            tbCodigoControl.Size = new Size(247, 23);
+            tbCodigoControl.TabIndex = 6;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 12F);
-            label1.Location = new Point(81, 104);
+            label1.Location = new Point(170, 104);
             label1.Name = "label1";
             label1.Size = new Size(57, 21);
             label1.TabIndex = 8;
@@ -143,7 +150,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 12F);
-            label2.Location = new Point(81, 143);
+            label2.Location = new Point(81, 183);
             label2.Name = "label2";
             label2.Size = new Size(154, 21);
             label2.TabIndex = 9;
@@ -153,27 +160,27 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 12F);
-            label3.Location = new Point(82, 217);
+            label3.Location = new Point(102, 271);
             label3.Name = "label3";
-            label3.Size = new Size(53, 21);
+            label3.Size = new Size(133, 21);
             label3.TabIndex = 10;
-            label3.Text = "Fecha:";
+            label3.Text = "Fecha de Emisión:";
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 12F);
-            label4.Location = new Point(86, 257);
+            label4.Location = new Point(140, 313);
             label4.Name = "label4";
-            label4.Size = new Size(59, 21);
+            label4.Size = new Size(95, 21);
             label4.TabIndex = 11;
-            label4.Text = "Monto:";
+            label4.Text = "Monto Total:";
             // 
             // label5
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 12F);
-            label5.Location = new Point(86, 299);
+            label5.Location = new Point(102, 359);
             label5.Name = "label5";
             label5.Size = new Size(133, 21);
             label5.TabIndex = 12;
@@ -183,39 +190,39 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 12F);
-            label6.Location = new Point(86, 340);
+            label6.Location = new Point(108, 400);
             label6.Name = "label6";
-            label6.Size = new Size(154, 21);
+            label6.Size = new Size(119, 21);
             label6.TabIndex = 13;
-            label6.Text = "Código Autorización:";
+            label6.Text = "Código Control:";
             // 
-            // button1
+            // btRegistrar
             // 
-            button1.BackColor = Color.FromArgb(0, 17, 61);
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Segoe UI", 11F);
-            button1.ForeColor = SystemColors.ControlLightLight;
-            button1.Location = new Point(339, 397);
-            button1.Name = "button1";
-            button1.Size = new Size(143, 33);
-            button1.TabIndex = 14;
-            button1.Text = "Registrar Factura";
-            button1.UseVisualStyleBackColor = false;
+            btRegistrar.BackColor = Color.FromArgb(0, 17, 61);
+            btRegistrar.FlatAppearance.BorderSize = 0;
+            btRegistrar.FlatStyle = FlatStyle.Flat;
+            btRegistrar.Font = new Font("Segoe UI", 11F);
+            btRegistrar.ForeColor = SystemColors.ControlLightLight;
+            btRegistrar.Location = new Point(535, 649);
+            btRegistrar.Name = "btRegistrar";
+            btRegistrar.Size = new Size(143, 33);
+            btRegistrar.TabIndex = 14;
+            btRegistrar.Text = "Registrar Factura";
+            btRegistrar.UseVisualStyleBackColor = false;
             // 
-            // tbNombreRazon
+            // tbNombreUsuario
             // 
-            tbNombreRazon.Location = new Point(122, 5);
-            tbNombreRazon.Name = "tbNombreRazon";
-            tbNombreRazon.Size = new Size(143, 23);
-            tbNombreRazon.TabIndex = 15;
+            tbNombreUsuario.Location = new Point(122, 5);
+            tbNombreUsuario.Name = "tbNombreUsuario";
+            tbNombreUsuario.Size = new Size(222, 23);
+            tbNombreUsuario.TabIndex = 15;
             // 
-            // tbNit
+            // tbNitUsuario
             // 
-            tbNit.Location = new Point(364, 5);
-            tbNit.Name = "tbNit";
-            tbNit.Size = new Size(143, 23);
-            tbNit.TabIndex = 16;
+            tbNitUsuario.Location = new Point(442, 7);
+            tbNitUsuario.Name = "tbNitUsuario";
+            tbNitUsuario.Size = new Size(211, 23);
+            tbNitUsuario.TabIndex = 16;
             // 
             // label7
             // 
@@ -233,7 +240,7 @@
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI", 12F);
             label8.ForeColor = SystemColors.ControlLightLight;
-            label8.Location = new Point(301, 7);
+            label8.Location = new Point(378, 9);
             label8.Name = "label8";
             label8.Size = new Size(57, 21);
             label8.TabIndex = 18;
@@ -242,20 +249,20 @@
             // panel2
             // 
             panel2.BackColor = Color.Orange;
-            panel2.Controls.Add(tbNit);
+            panel2.Controls.Add(tbNitUsuario);
             panel2.Controls.Add(label8);
-            panel2.Controls.Add(tbNombreRazon);
+            panel2.Controls.Add(tbNombreUsuario);
             panel2.Controls.Add(label7);
             panel2.Dock = DockStyle.Bottom;
-            panel2.Location = new Point(0, 477);
+            panel2.Location = new Point(0, 715);
             panel2.Name = "panel2";
-            panel2.Size = new Size(534, 34);
+            panel2.Size = new Size(717, 34);
             panel2.TabIndex = 19;
             // 
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(16, 384);
+            pictureBox1.Location = new Point(17, 608);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(128, 74);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
@@ -266,62 +273,118 @@
             // 
             label10.AutoSize = true;
             label10.ForeColor = SystemColors.AppWorkspace;
-            label10.Location = new Point(447, 57);
+            label10.Location = new Point(639, 75);
             label10.Name = "label10";
             label10.Size = new Size(75, 15);
             label10.TabIndex = 21;
             label10.Text = "JEELM©2024";
+            label10.Click += label10_Click;
             // 
-            // label11
+            // lab
             // 
-            label11.AutoSize = true;
-            label11.Location = new Point(86, 181);
-            label11.Name = "label11";
-            label11.Size = new Size(46, 15);
-            label11.TabIndex = 22;
-            label11.Text = "Factura";
+            lab.AutoSize = true;
+            lab.Font = new Font("Segoe UI", 12F);
+            lab.Location = new Point(102, 143);
+            lab.Name = "lab";
+            lab.Size = new Size(125, 21);
+            lab.TabIndex = 25;
+            lab.Text = "Numero Factura:";
             // 
-            // comboBox1
+            // tbNumFactura
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(249, 178);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(144, 23);
-            comboBox1.TabIndex = 23;
+            tbNumFactura.Location = new Point(250, 143);
+            tbNumFactura.Name = "tbNumFactura";
+            tbNumFactura.Size = new Size(247, 23);
+            tbNumFactura.TabIndex = 24;
             // 
-            // FormGenerarFactura
+            // tbRazonSocial
+            // 
+            tbRazonSocial.AutoSize = true;
+            tbRazonSocial.Font = new Font("Segoe UI", 12F);
+            tbRazonSocial.Location = new Point(62, 227);
+            tbRazonSocial.Name = "tbRazonSocial";
+            tbRazonSocial.Size = new Size(176, 21);
+            tbRazonSocial.TabIndex = 27;
+            tbRazonSocial.Text = "Nombre o Razon Social:";
+            // 
+            // textBox7
+            // 
+            textBox7.Location = new Point(250, 225);
+            textBox7.Name = "textBox7";
+            textBox7.Size = new Size(247, 23);
+            textBox7.TabIndex = 26;
+            // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(btTrimestral);
+            groupBox1.Controls.Add(btMensual);
+            groupBox1.Location = new Point(62, 465);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(522, 64);
+            groupBox1.TabIndex = 28;
+            groupBox1.TabStop = false;
+            // 
+            // btTrimestral
+            // 
+            btTrimestral.AutoSize = true;
+            btTrimestral.Location = new Point(360, 26);
+            btTrimestral.Name = "btTrimestral";
+            btTrimestral.Size = new Size(76, 19);
+            btTrimestral.TabIndex = 1;
+            btTrimestral.TabStop = true;
+            btTrimestral.Text = "Trimestral";
+            btTrimestral.UseVisualStyleBackColor = true;
+            // 
+            // btMensual
+            // 
+            btMensual.AutoSize = true;
+            btMensual.Location = new Point(95, 26);
+            btMensual.Name = "btMensual";
+            btMensual.Size = new Size(70, 19);
+            btMensual.TabIndex = 0;
+            btMensual.TabStop = true;
+            btMensual.Text = "Mensual";
+            btMensual.UseVisualStyleBackColor = true;
+            // 
+            // RegistrarFactura
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(534, 511);
-            Controls.Add(comboBox1);
-            Controls.Add(label11);
+            ClientSize = new Size(717, 749);
+            Controls.Add(groupBox1);
+            Controls.Add(tbRazonSocial);
+            Controls.Add(textBox7);
+            Controls.Add(lab);
+            Controls.Add(tbNumFactura);
             Controls.Add(label10);
             Controls.Add(pictureBox1);
             Controls.Add(panel2);
-            Controls.Add(button1);
+            Controls.Add(btRegistrar);
             Controls.Add(label6);
             Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
-            Controls.Add(textBox5);
-            Controls.Add(textBox4);
-            Controls.Add(textBox3);
+            Controls.Add(tbCodigoControl);
+            Controls.Add(tbMontoImponible);
+            Controls.Add(tbMontoTotal);
             Controls.Add(dateTimePicker1);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(tbAutorizacion);
+            Controls.Add(tbNit);
             Controls.Add(panel1);
-            Name = "FormGenerarFactura";
+            Name = "RegistrarFactura";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Generar Factura";
+            Load += RegistrarFactura_Load;
             ((System.ComponentModel.ISupportInitialize)fileSystemWatcher1).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -329,20 +392,20 @@
         #endregion
 
         private FileSystemWatcher fileSystemWatcher1;
-        private TextBox textBox1;
+        private TextBox tbNit;
         private Panel panel1;
         private Label label1;
-        private TextBox textBox5;
-        private TextBox textBox4;
-        private TextBox textBox3;
+        private TextBox tbCodigoControl;
+        private TextBox tbMontoImponible;
+        private TextBox tbMontoTotal;
         private DateTimePicker dateTimePicker1;
-        private TextBox textBox2;
+        private TextBox tbAutorizacion;
         private Panel panel2;
-        private TextBox tbNit;
+        private TextBox tbNitUsuario;
         private Label label8;
-        private TextBox tbNombreRazon;
+        private TextBox tbNombreUsuario;
         private Label label7;
-        private Button button1;
+        private Button btRegistrar;
         private Label label6;
         private Label label5;
         private Label label4;
@@ -351,7 +414,12 @@
         private PictureBox pictureBox1;
         private Label label9;
         private Label label10;
-        private Label label11;
-        private ComboBox comboBox1;
+        private Label lab;
+        private TextBox tbNumFactura;
+        private Label tbRazonSocial;
+        private TextBox textBox7;
+        private GroupBox groupBox1;
+        private RadioButton btTrimestral;
+        private RadioButton btMensual;
     }
 }
