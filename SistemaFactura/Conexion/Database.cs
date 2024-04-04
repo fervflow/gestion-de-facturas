@@ -19,7 +19,7 @@ namespace SistemaFactura.Conexion
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al conectar a la BD: " + ex.Message);
+                MessageBox.Show("Error al conectar a la Base de Datos:\n" + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         public void cerrarBD()
@@ -30,7 +30,7 @@ namespace SistemaFactura.Conexion
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al cerrar la BD: " + ex.Message);
+                MessageBox.Show("Error al cerrar la Base de Datos:\n" + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
