@@ -34,7 +34,7 @@
             label9 = new Label();
             tbNit = new TextBox();
             tbAutorizacion = new TextBox();
-            dateTimePicker1 = new DateTimePicker();
+            dtFecha = new DateTimePicker();
             tbMontoTotal = new TextBox();
             tbMontoImponible = new TextBox();
             tbCodigoControl = new TextBox();
@@ -55,15 +55,16 @@
             lab = new Label();
             tbNumFactura = new TextBox();
             tbRazonSocial = new Label();
-            textBox7 = new TextBox();
-            groupBox1 = new GroupBox();
-            btTrimestral = new RadioButton();
-            btMensual = new RadioButton();
+            tbNombreRazon = new TextBox();
+            gbTipoDescargo = new GroupBox();
+            rbTrimestral = new RadioButton();
+            rbMensual = new RadioButton();
+            cbMontoImponible = new CheckBox();
             ((System.ComponentModel.ISupportInitialize)fileSystemWatcher1).BeginInit();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            groupBox1.SuspendLayout();
+            gbTipoDescargo.SuspendLayout();
             SuspendLayout();
             // 
             // fileSystemWatcher1
@@ -95,46 +96,58 @@
             // 
             // tbNit
             // 
+            tbNit.Font = new Font("Cascadia Mono SemiBold", 11.25F, FontStyle.Bold);
             tbNit.Location = new Point(249, 102);
             tbNit.Name = "tbNit";
-            tbNit.Size = new Size(248, 23);
-            tbNit.TabIndex = 1;
+            tbNit.Size = new Size(248, 25);
+            tbNit.TabIndex = 0;
             tbNit.KeyPress += tbNit_KeyPress;
             // 
             // tbAutorizacion
             // 
-            tbAutorizacion.Location = new Point(249, 181);
+            tbAutorizacion.CharacterCasing = CharacterCasing.Upper;
+            tbAutorizacion.Font = new Font("Cascadia Mono SemiBold", 11.25F, FontStyle.Bold);
+            tbAutorizacion.Location = new Point(249, 187);
+            tbAutorizacion.Multiline = true;
             tbAutorizacion.Name = "tbAutorizacion";
-            tbAutorizacion.Size = new Size(248, 23);
+            tbAutorizacion.Size = new Size(248, 48);
             tbAutorizacion.TabIndex = 2;
             // 
-            // dateTimePicker1
+            // dtFecha
             // 
-            dateTimePicker1.Location = new Point(250, 269);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(247, 23);
-            dateTimePicker1.TabIndex = 3;
+            dtFecha.Location = new Point(250, 320);
+            dtFecha.Name = "dtFecha";
+            dtFecha.Size = new Size(247, 23);
+            dtFecha.TabIndex = 4;
             // 
             // tbMontoTotal
             // 
-            tbMontoTotal.Location = new Point(250, 315);
+            tbMontoTotal.Font = new Font("Cascadia Mono SemiBold", 11.25F, FontStyle.Bold);
+            tbMontoTotal.Location = new Point(250, 366);
             tbMontoTotal.Name = "tbMontoTotal";
-            tbMontoTotal.Size = new Size(247, 23);
-            tbMontoTotal.TabIndex = 4;
+            tbMontoTotal.Size = new Size(247, 25);
+            tbMontoTotal.TabIndex = 5;
+            tbMontoTotal.TextChanged += tbMontoTotal_TextChanged;
+            tbMontoTotal.Enter += tbMoney_Enter;
+            tbMontoTotal.KeyDown += tbMoney_KeyDown;
+            tbMontoTotal.KeyPress += tbMoney_KeyPress;
             // 
             // tbMontoImponible
             // 
-            tbMontoImponible.Location = new Point(250, 357);
+            tbMontoImponible.Font = new Font("Cascadia Mono SemiBold", 11.25F, FontStyle.Bold);
+            tbMontoImponible.Location = new Point(250, 408);
             tbMontoImponible.Name = "tbMontoImponible";
-            tbMontoImponible.Size = new Size(247, 23);
-            tbMontoImponible.TabIndex = 5;
+            tbMontoImponible.Size = new Size(247, 25);
+            tbMontoImponible.TabIndex = 6;
             // 
             // tbCodigoControl
             // 
-            tbCodigoControl.Location = new Point(250, 398);
+            tbCodigoControl.CharacterCasing = CharacterCasing.Upper;
+            tbCodigoControl.Font = new Font("Cascadia Mono SemiBold", 11.25F, FontStyle.Bold);
+            tbCodigoControl.Location = new Point(250, 449);
             tbCodigoControl.Name = "tbCodigoControl";
-            tbCodigoControl.Size = new Size(247, 23);
-            tbCodigoControl.TabIndex = 6;
+            tbCodigoControl.Size = new Size(247, 25);
+            tbCodigoControl.TabIndex = 7;
             // 
             // label1
             // 
@@ -150,7 +163,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 12F);
-            label2.Location = new Point(81, 183);
+            label2.Location = new Point(81, 189);
             label2.Name = "label2";
             label2.Size = new Size(154, 21);
             label2.TabIndex = 9;
@@ -160,7 +173,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 12F);
-            label3.Location = new Point(102, 271);
+            label3.Location = new Point(102, 322);
             label3.Name = "label3";
             label3.Size = new Size(133, 21);
             label3.TabIndex = 10;
@@ -170,7 +183,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 12F);
-            label4.Location = new Point(140, 313);
+            label4.Location = new Point(140, 364);
             label4.Name = "label4";
             label4.Size = new Size(95, 21);
             label4.TabIndex = 11;
@@ -180,7 +193,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 12F);
-            label5.Location = new Point(102, 359);
+            label5.Location = new Point(102, 410);
             label5.Name = "label5";
             label5.Size = new Size(133, 21);
             label5.TabIndex = 12;
@@ -190,7 +203,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 12F);
-            label6.Location = new Point(108, 400);
+            label6.Location = new Point(108, 451);
             label6.Name = "label6";
             label6.Size = new Size(119, 21);
             label6.TabIndex = 13;
@@ -206,22 +219,27 @@
             btRegistrar.Location = new Point(535, 649);
             btRegistrar.Name = "btRegistrar";
             btRegistrar.Size = new Size(143, 33);
-            btRegistrar.TabIndex = 14;
+            btRegistrar.TabIndex = 10;
             btRegistrar.Text = "Registrar Factura";
             btRegistrar.UseVisualStyleBackColor = false;
+            btRegistrar.Click += btRegistrar_Click;
             // 
             // tbNombreUsuario
             // 
+            tbNombreUsuario.CharacterCasing = CharacterCasing.Upper;
             tbNombreUsuario.Location = new Point(122, 5);
             tbNombreUsuario.Name = "tbNombreUsuario";
+            tbNombreUsuario.ReadOnly = true;
             tbNombreUsuario.Size = new Size(222, 23);
             tbNombreUsuario.TabIndex = 15;
             // 
             // tbNitUsuario
             // 
+            tbNitUsuario.Font = new Font("Cascadia Mono SemiBold", 11.25F, FontStyle.Bold);
             tbNitUsuario.Location = new Point(442, 7);
             tbNitUsuario.Name = "tbNitUsuario";
-            tbNitUsuario.Size = new Size(211, 23);
+            tbNitUsuario.ReadOnly = true;
+            tbNitUsuario.Size = new Size(211, 25);
             tbNitUsuario.TabIndex = 16;
             // 
             // label7
@@ -278,7 +296,6 @@
             label10.Size = new Size(75, 15);
             label10.TabIndex = 21;
             label10.Text = "JEELM©2024";
-            label10.Click += label10_Click;
             // 
             // lab
             // 
@@ -292,68 +309,87 @@
             // 
             // tbNumFactura
             // 
+            tbNumFactura.Font = new Font("Cascadia Mono SemiBold", 11.25F, FontStyle.Bold);
             tbNumFactura.Location = new Point(250, 143);
             tbNumFactura.Name = "tbNumFactura";
-            tbNumFactura.Size = new Size(247, 23);
-            tbNumFactura.TabIndex = 24;
+            tbNumFactura.Size = new Size(247, 25);
+            tbNumFactura.TabIndex = 1;
             // 
             // tbRazonSocial
             // 
             tbRazonSocial.AutoSize = true;
             tbRazonSocial.Font = new Font("Segoe UI", 12F);
-            tbRazonSocial.Location = new Point(62, 227);
+            tbRazonSocial.Location = new Point(62, 255);
             tbRazonSocial.Name = "tbRazonSocial";
             tbRazonSocial.Size = new Size(176, 21);
             tbRazonSocial.TabIndex = 27;
             tbRazonSocial.Text = "Nombre o Razon Social:";
             // 
-            // textBox7
+            // tbNombreRazon
             // 
-            textBox7.Location = new Point(250, 225);
-            textBox7.Name = "textBox7";
-            textBox7.Size = new Size(247, 23);
-            textBox7.TabIndex = 26;
+            tbNombreRazon.CharacterCasing = CharacterCasing.Upper;
+            tbNombreRazon.Location = new Point(250, 253);
+            tbNombreRazon.Multiline = true;
+            tbNombreRazon.Name = "tbNombreRazon";
+            tbNombreRazon.Size = new Size(247, 45);
+            tbNombreRazon.TabIndex = 3;
             // 
-            // groupBox1
+            // gbTipoDescargo
             // 
-            groupBox1.Controls.Add(btTrimestral);
-            groupBox1.Controls.Add(btMensual);
-            groupBox1.Location = new Point(62, 465);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(522, 64);
-            groupBox1.TabIndex = 28;
-            groupBox1.TabStop = false;
+            gbTipoDescargo.Controls.Add(rbTrimestral);
+            gbTipoDescargo.Controls.Add(rbMensual);
+            gbTipoDescargo.Font = new Font("Segoe UI", 11F);
+            gbTipoDescargo.Location = new Point(62, 516);
+            gbTipoDescargo.Name = "gbTipoDescargo";
+            gbTipoDescargo.Size = new Size(522, 64);
+            gbTipoDescargo.TabIndex = 28;
+            gbTipoDescargo.TabStop = false;
+            gbTipoDescargo.Text = "Tipo de Descargo:";
             // 
-            // btTrimestral
+            // rbTrimestral
             // 
-            btTrimestral.AutoSize = true;
-            btTrimestral.Location = new Point(360, 26);
-            btTrimestral.Name = "btTrimestral";
-            btTrimestral.Size = new Size(76, 19);
-            btTrimestral.TabIndex = 1;
-            btTrimestral.TabStop = true;
-            btTrimestral.Text = "Trimestral";
-            btTrimestral.UseVisualStyleBackColor = true;
+            rbTrimestral.AutoSize = true;
+            rbTrimestral.Location = new Point(360, 26);
+            rbTrimestral.Name = "rbTrimestral";
+            rbTrimestral.Size = new Size(92, 24);
+            rbTrimestral.TabIndex = 9;
+            rbTrimestral.TabStop = true;
+            rbTrimestral.Text = "Trimestral";
+            rbTrimestral.UseVisualStyleBackColor = true;
             // 
-            // btMensual
+            // rbMensual
             // 
-            btMensual.AutoSize = true;
-            btMensual.Location = new Point(95, 26);
-            btMensual.Name = "btMensual";
-            btMensual.Size = new Size(70, 19);
-            btMensual.TabIndex = 0;
-            btMensual.TabStop = true;
-            btMensual.Text = "Mensual";
-            btMensual.UseVisualStyleBackColor = true;
+            rbMensual.AutoSize = true;
+            rbMensual.Location = new Point(95, 26);
+            rbMensual.Name = "rbMensual";
+            rbMensual.Size = new Size(82, 24);
+            rbMensual.TabIndex = 8;
+            rbMensual.TabStop = true;
+            rbMensual.Text = "Mensual";
+            rbMensual.UseVisualStyleBackColor = true;
+            // 
+            // cbMontoImponible
+            // 
+            cbMontoImponible.AutoSize = true;
+            cbMontoImponible.BackColor = SystemColors.Control;
+            cbMontoImponible.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            cbMontoImponible.ForeColor = SystemColors.ControlText;
+            cbMontoImponible.Location = new Point(503, 416);
+            cbMontoImponible.Name = "cbMontoImponible";
+            cbMontoImponible.Size = new Size(15, 14);
+            cbMontoImponible.TabIndex = 29;
+            cbMontoImponible.UseVisualStyleBackColor = false;
+            cbMontoImponible.CheckedChanged += cbMontoImponible_CheckedChanged;
             // 
             // RegistrarFactura
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(717, 749);
-            Controls.Add(groupBox1);
+            Controls.Add(cbMontoImponible);
+            Controls.Add(gbTipoDescargo);
             Controls.Add(tbRazonSocial);
-            Controls.Add(textBox7);
+            Controls.Add(tbNombreRazon);
             Controls.Add(lab);
             Controls.Add(tbNumFactura);
             Controls.Add(label10);
@@ -369,22 +405,21 @@
             Controls.Add(tbCodigoControl);
             Controls.Add(tbMontoImponible);
             Controls.Add(tbMontoTotal);
-            Controls.Add(dateTimePicker1);
+            Controls.Add(dtFecha);
             Controls.Add(tbAutorizacion);
             Controls.Add(tbNit);
             Controls.Add(panel1);
             Name = "RegistrarFactura";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Generar Factura";
-            Load += RegistrarFactura_Load;
             ((System.ComponentModel.ISupportInitialize)fileSystemWatcher1).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
+            gbTipoDescargo.ResumeLayout(false);
+            gbTipoDescargo.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -398,7 +433,7 @@
         private TextBox tbCodigoControl;
         private TextBox tbMontoImponible;
         private TextBox tbMontoTotal;
-        private DateTimePicker dateTimePicker1;
+        private DateTimePicker dtFecha;
         private TextBox tbAutorizacion;
         private Panel panel2;
         private TextBox tbNitUsuario;
@@ -417,9 +452,10 @@
         private Label lab;
         private TextBox tbNumFactura;
         private Label tbRazonSocial;
-        private TextBox textBox7;
-        private GroupBox groupBox1;
-        private RadioButton btTrimestral;
-        private RadioButton btMensual;
+        private TextBox tbNombreRazon;
+        private GroupBox gbTipoDescargo;
+        private RadioButton rbTrimestral;
+        private RadioButton rbMensual;
+        private CheckBox cbMontoImponible;
     }
 }
