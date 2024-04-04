@@ -79,7 +79,6 @@
             // 
             // pContenedor
             // 
-            pContenedor.AutoScroll = true;
             pContenedor.Controls.Add(label2);
             pContenedor.Dock = DockStyle.Fill;
             pContenedor.Location = new Point(0, 54);
@@ -105,6 +104,7 @@
             Controls.Add(pContenedor);
             Controls.Add(panel1);
             Name = "Menu";
+            StartPosition = FormStartPosition.CenterParent;
             Text = "Menu";
             panel1.ResumeLayout(false);
             pContenedor.ResumeLayout(false);
