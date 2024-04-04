@@ -34,7 +34,7 @@ namespace SistemaFactura.Services
                 {
                     cmd.Dispose();
                     database.cerrarBD();
-                    MessageBox.Show("Error al crear el usuario:", ex.Message);
+                    MessageBox.Show("Error al crear el usuario:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
             }
