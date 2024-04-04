@@ -57,11 +57,11 @@
             tbRazonSocial = new Label();
             tbNombreRazon = new TextBox();
             gbTipoDescargo = new GroupBox();
+            label11 = new Label();
+            label12 = new Label();
             rbTrimestral = new RadioButton();
             rbMensual = new RadioButton();
             cbMontoImponible = new CheckBox();
-            label11 = new Label();
-            label12 = new Label();
             ((System.ComponentModel.ISupportInitialize)fileSystemWatcher1).BeginInit();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
@@ -114,6 +114,7 @@
             tbAutorizacion.Name = "tbAutorizacion";
             tbAutorizacion.Size = new Size(248, 48);
             tbAutorizacion.TabIndex = 2;
+            tbAutorizacion.KeyPress += tbAutorizacion_KeyPress;
             // 
             // dtFecha
             // 
@@ -150,6 +151,8 @@
             tbCodigoControl.Name = "tbCodigoControl";
             tbCodigoControl.Size = new Size(247, 25);
             tbCodigoControl.TabIndex = 7;
+            tbCodigoControl.TextChanged += tbCodigoControl_TextChanged;
+            tbCodigoControl.KeyPress += tbCodigoControl_KeyPress;
             // 
             // label1
             // 
@@ -338,6 +341,7 @@
             tbNombreRazon.Name = "tbNombreRazon";
             tbNombreRazon.Size = new Size(247, 45);
             tbNombreRazon.TabIndex = 3;
+            tbNombreRazon.KeyPress += tbNombreRazon_KeyPress;
             // 
             // gbTipoDescargo
             // 
@@ -352,6 +356,24 @@
             gbTipoDescargo.TabIndex = 28;
             gbTipoDescargo.TabStop = false;
             gbTipoDescargo.Text = "Tipo de Descargo:";
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new Point(96, 52);
+            label11.Name = "label11";
+            label11.Size = new Size(201, 20);
+            label11.TabIndex = 30;
+            label11.Text = "*Sirve para el Formulario 200";
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Location = new Point(360, 52);
+            label12.Name = "label12";
+            label12.Size = new Size(201, 20);
+            label12.TabIndex = 31;
+            label12.Text = "*Sirve para el Formulario 500";
             // 
             // rbTrimestral
             // 
@@ -387,24 +409,6 @@
             cbMontoImponible.TabIndex = 29;
             cbMontoImponible.UseVisualStyleBackColor = false;
             cbMontoImponible.CheckedChanged += cbMontoImponible_CheckedChanged;
-            // 
-            // label11
-            // 
-            label11.AutoSize = true;
-            label11.Location = new Point(96, 52);
-            label11.Name = "label11";
-            label11.Size = new Size(201, 20);
-            label11.TabIndex = 30;
-            label11.Text = "*Sirve para el Formulario 200";
-            // 
-            // label12
-            // 
-            label12.AutoSize = true;
-            label12.Location = new Point(360, 52);
-            label12.Name = "label12";
-            label12.Size = new Size(201, 20);
-            label12.TabIndex = 31;
-            label12.Text = "*Sirve para el Formulario 500";
             // 
             // RegistrarFactura
             // 
