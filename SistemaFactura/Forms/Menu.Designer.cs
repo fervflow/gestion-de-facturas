@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Menu));
             panel1 = new Panel();
             btnVerLista = new Button();
             btnRegistrarFact = new Button();
@@ -79,7 +80,6 @@
             // 
             // pContenedor
             // 
-            pContenedor.AutoScroll = true;
             pContenedor.Controls.Add(label2);
             pContenedor.Dock = DockStyle.Fill;
             pContenedor.Location = new Point(0, 54);
@@ -104,7 +104,9 @@
             ClientSize = new Size(788, 569);
             Controls.Add(pContenedor);
             Controls.Add(panel1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Menu";
+            StartPosition = FormStartPosition.CenterParent;
             Text = "Menu";
             panel1.ResumeLayout(false);
             pContenedor.ResumeLayout(false);

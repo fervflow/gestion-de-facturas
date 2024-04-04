@@ -57,6 +57,8 @@
             tbRazonSocial = new Label();
             tbNombreRazon = new TextBox();
             gbTipoDescargo = new GroupBox();
+            label11 = new Label();
+            label12 = new Label();
             rbTrimestral = new RadioButton();
             rbMensual = new RadioButton();
             cbMontoImponible = new CheckBox();
@@ -112,6 +114,7 @@
             tbAutorizacion.Name = "tbAutorizacion";
             tbAutorizacion.Size = new Size(248, 48);
             tbAutorizacion.TabIndex = 2;
+            tbAutorizacion.KeyPress += tbAutorizacion_KeyPress;
             // 
             // dtFecha
             // 
@@ -148,6 +151,8 @@
             tbCodigoControl.Name = "tbCodigoControl";
             tbCodigoControl.Size = new Size(247, 25);
             tbCodigoControl.TabIndex = 7;
+            tbCodigoControl.TextChanged += tbCodigoControl_TextChanged;
+            tbCodigoControl.KeyPress += tbCodigoControl_KeyPress;
             // 
             // label1
             // 
@@ -312,9 +317,11 @@
             // 
             tbNumFactura.Font = new Font("Cascadia Mono SemiBold", 11.25F, FontStyle.Bold);
             tbNumFactura.Location = new Point(337, 151);
+            tbNumFactura.MaxLength = 6;
             tbNumFactura.Name = "tbNumFactura";
             tbNumFactura.Size = new Size(247, 25);
             tbNumFactura.TabIndex = 1;
+            tbNumFactura.KeyPress += tbNumFactura_KeyPress;
             // 
             // tbRazonSocial
             // 
@@ -334,18 +341,39 @@
             tbNombreRazon.Name = "tbNombreRazon";
             tbNombreRazon.Size = new Size(247, 45);
             tbNombreRazon.TabIndex = 3;
+            tbNombreRazon.KeyPress += tbNombreRazon_KeyPress;
             // 
             // gbTipoDescargo
             // 
+            gbTipoDescargo.Controls.Add(label11);
+            gbTipoDescargo.Controls.Add(label12);
             gbTipoDescargo.Controls.Add(rbTrimestral);
             gbTipoDescargo.Controls.Add(rbMensual);
             gbTipoDescargo.Font = new Font("Segoe UI", 11F);
             gbTipoDescargo.Location = new Point(131, 513);
             gbTipoDescargo.Name = "gbTipoDescargo";
-            gbTipoDescargo.Size = new Size(522, 64);
+            gbTipoDescargo.Size = new Size(563, 75);
             gbTipoDescargo.TabIndex = 28;
             gbTipoDescargo.TabStop = false;
             gbTipoDescargo.Text = "Tipo de Descargo:";
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new Point(96, 52);
+            label11.Name = "label11";
+            label11.Size = new Size(201, 20);
+            label11.TabIndex = 30;
+            label11.Text = "*Sirve para el Formulario 200";
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Location = new Point(360, 52);
+            label12.Name = "label12";
+            label12.Size = new Size(201, 20);
+            label12.TabIndex = 31;
+            label12.Text = "*Sirve para el Formulario 500";
             // 
             // rbTrimestral
             // 
@@ -411,6 +439,7 @@
             Controls.Add(tbAutorizacion);
             Controls.Add(tbNit);
             Controls.Add(panel1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "RegistrarFactura";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Generar Factura";
@@ -459,5 +488,7 @@
         private RadioButton rbTrimestral;
         private RadioButton rbMensual;
         private CheckBox cbMontoImponible;
+        private Label label12;
+        private Label label11;
     }
 }
