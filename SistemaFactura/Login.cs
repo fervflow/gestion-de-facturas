@@ -1,4 +1,5 @@
 using SistemaFactura.Services;
+using SistemaFactura.Forms;
 
 namespace SistemaFactura
 {
@@ -12,11 +13,11 @@ namespace SistemaFactura
         }
         public static void MostrarFormFactura(long nit_ci, string nombre, Form formActual)
         {
-            RegistrarFactura formFactura = new RegistrarFactura(nit_ci, nombre);
-            formFactura.FormClosed += (s, args) => formActual.Close();
+            Menu menu = new Menu(nit_ci, nombre);
+            menu.FormClosed += (s, args) => formActual.Close();
             formActual.Hide();
             MessageBox.Show("Bienvenido/a:\n" + nombre, "", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-            formFactura.Show();
+            menu.Show();
         }
 
         private void btnAcceder_Click(object sender, EventArgs e)
@@ -43,6 +44,11 @@ namespace SistemaFactura
             {
                 e.Handled = true;
             }
+        }
+
+        private void tbNit_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

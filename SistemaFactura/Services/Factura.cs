@@ -39,5 +39,7 @@ namespace SistemaFactura.Services
             this.tipo_especifico = tipo_especifico;
             this.tipo_general = tipo_general;
         }
+      
+        public Factura() { }
     }
 }
