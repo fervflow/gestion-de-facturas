@@ -385,6 +385,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoScroll = true;
             ClientSize = new Size(717, 749);
             Controls.Add(cbMontoImponible);
             Controls.Add(gbTipoDescargo);
