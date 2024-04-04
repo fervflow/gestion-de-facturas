@@ -45,7 +45,7 @@
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(771, 54);
+            panel1.Size = new Size(788, 54);
             panel1.TabIndex = 1;
             // 
             // btnVerLista
@@ -84,14 +84,14 @@
             pContenedor.Dock = DockStyle.Fill;
             pContenedor.Location = new Point(0, 54);
             pContenedor.Name = "pContenedor";
-            pContenedor.Size = new Size(771, 508);
+            pContenedor.Size = new Size(788, 515);
             pContenedor.TabIndex = 3;
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.ForeColor = SystemColors.ControlDarkDark;
-            label2.Location = new Point(684, 484);
+            label2.Location = new Point(706, 481);
             label2.Name = "label2";
             label2.Size = new Size(75, 15);
             label2.TabIndex = 9;
@@ -101,7 +101,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(771, 562);
+            ClientSize = new Size(788, 569);
             Controls.Add(pContenedor);
             Controls.Add(panel1);
             Name = "Menu";
