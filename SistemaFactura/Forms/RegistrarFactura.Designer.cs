@@ -1,6 +1,6 @@
 ﻿namespace SistemaFactura
 {
-    partial class FormGenerarFactura
+    partial class RegistrarFactura
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormGenerarFactura));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegistrarFactura));
             fileSystemWatcher1 = new FileSystemWatcher();
             panel1 = new Panel();
             label9 = new Label();
@@ -45,8 +45,8 @@
             label5 = new Label();
             label6 = new Label();
             button1 = new Button();
-            textBox6 = new TextBox();
-            textBox7 = new TextBox();
+            tbNombreRazon = new TextBox();
+            tbNit = new TextBox();
             label7 = new Label();
             label8 = new Label();
             panel2 = new Panel();
@@ -203,19 +203,19 @@
             button1.Text = "Registrar Factura";
             button1.UseVisualStyleBackColor = false;
             // 
-            // textBox6
+            // tbNombreRazon
             // 
-            textBox6.Location = new Point(122, 5);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(143, 23);
-            textBox6.TabIndex = 15;
+            tbNombreRazon.Location = new Point(122, 5);
+            tbNombreRazon.Name = "tbNombreRazon";
+            tbNombreRazon.Size = new Size(143, 23);
+            tbNombreRazon.TabIndex = 15;
             // 
-            // textBox7
+            // tbNit
             // 
-            textBox7.Location = new Point(364, 5);
-            textBox7.Name = "textBox7";
-            textBox7.Size = new Size(143, 23);
-            textBox7.TabIndex = 16;
+            tbNit.Location = new Point(364, 5);
+            tbNit.Name = "tbNit";
+            tbNit.Size = new Size(143, 23);
+            tbNit.TabIndex = 16;
             // 
             // label7
             // 
@@ -242,9 +242,9 @@
             // panel2
             // 
             panel2.BackColor = Color.Orange;
-            panel2.Controls.Add(textBox7);
+            panel2.Controls.Add(tbNit);
             panel2.Controls.Add(label8);
-            panel2.Controls.Add(textBox6);
+            panel2.Controls.Add(tbNombreRazon);
             panel2.Controls.Add(label7);
             panel2.Dock = DockStyle.Bottom;
             panel2.Location = new Point(0, 477);
@@ -314,6 +314,7 @@
             Controls.Add(textBox1);
             Controls.Add(panel1);
             Name = "FormGenerarFactura";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Generar Factura";
             ((System.ComponentModel.ISupportInitialize)fileSystemWatcher1).EndInit();
             panel1.ResumeLayout(false);
@@ -337,9 +338,9 @@
         private DateTimePicker dateTimePicker1;
         private TextBox textBox2;
         private Panel panel2;
-        private TextBox textBox7;
+        private TextBox tbNit;
         private Label label8;
-        private TextBox textBox6;
+        private TextBox tbNombreRazon;
         private Label label7;
         private Button button1;
         private Label label6;

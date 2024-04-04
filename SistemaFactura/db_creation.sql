@@ -17,7 +17,7 @@ GO
 USE sistema_factura;
 
 CREATE TABLE usuario(
-    nit				BIGINT PRIMARY KEY NOT NULL,
+    nit_ci			BIGINT PRIMARY KEY NOT NULL,
     nombre			VARCHAR(50),
 );
 GO
@@ -35,7 +35,7 @@ CREATE TABLE factura(
     cod_control     	VARCHAR(30), -- Probablemente no tiene
     tipo_especifico     BIT NOT NULL,
     tipo_general        BIT NOT NULL,
-    FOREIGN KEY (nit_usuario) REFERENCES usuario(nit),
+    FOREIGN KEY (nit_usuario) REFERENCES usuario(nit_ci),
 );
 GO
 

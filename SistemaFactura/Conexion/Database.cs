@@ -2,11 +2,11 @@
 
 namespace SistemaFactura.Conexion
 {
-    internal class Conexion
+    internal class Database
     {
         private string cadenaConexion;
         public SqlConnection con { get; set; }
-        public Conexion()
+        public Database()
         {
             cadenaConexion = @"Data Source=localhost;Initial Catalog=sistema_factura;User ID=factura_admin;Password=admin123";
             con = new SqlConnection(cadenaConexion);
