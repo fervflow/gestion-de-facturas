@@ -97,7 +97,7 @@
             // tbNit
             // 
             tbNit.Font = new Font("Cascadia Mono SemiBold", 11.25F, FontStyle.Bold);
-            tbNit.Location = new Point(249, 102);
+            tbNit.Location = new Point(336, 110);
             tbNit.Name = "tbNit";
             tbNit.Size = new Size(248, 25);
             tbNit.TabIndex = 0;
@@ -107,7 +107,7 @@
             // 
             tbAutorizacion.CharacterCasing = CharacterCasing.Upper;
             tbAutorizacion.Font = new Font("Cascadia Mono SemiBold", 11.25F, FontStyle.Bold);
-            tbAutorizacion.Location = new Point(249, 187);
+            tbAutorizacion.Location = new Point(336, 195);
             tbAutorizacion.Multiline = true;
             tbAutorizacion.Name = "tbAutorizacion";
             tbAutorizacion.Size = new Size(248, 48);
@@ -115,7 +115,7 @@
             // 
             // dtFecha
             // 
-            dtFecha.Location = new Point(250, 320);
+            dtFecha.Location = new Point(337, 328);
             dtFecha.Name = "dtFecha";
             dtFecha.Size = new Size(247, 23);
             dtFecha.TabIndex = 4;
@@ -123,7 +123,7 @@
             // tbMontoTotal
             // 
             tbMontoTotal.Font = new Font("Cascadia Mono SemiBold", 11.25F, FontStyle.Bold);
-            tbMontoTotal.Location = new Point(250, 366);
+            tbMontoTotal.Location = new Point(337, 374);
             tbMontoTotal.Name = "tbMontoTotal";
             tbMontoTotal.Size = new Size(247, 25);
             tbMontoTotal.TabIndex = 5;
@@ -135,7 +135,7 @@
             // tbMontoImponible
             // 
             tbMontoImponible.Font = new Font("Cascadia Mono SemiBold", 11.25F, FontStyle.Bold);
-            tbMontoImponible.Location = new Point(250, 408);
+            tbMontoImponible.Location = new Point(337, 416);
             tbMontoImponible.Name = "tbMontoImponible";
             tbMontoImponible.Size = new Size(247, 25);
             tbMontoImponible.TabIndex = 6;
@@ -144,7 +144,7 @@
             // 
             tbCodigoControl.CharacterCasing = CharacterCasing.Upper;
             tbCodigoControl.Font = new Font("Cascadia Mono SemiBold", 11.25F, FontStyle.Bold);
-            tbCodigoControl.Location = new Point(250, 449);
+            tbCodigoControl.Location = new Point(337, 461);
             tbCodigoControl.Name = "tbCodigoControl";
             tbCodigoControl.Size = new Size(247, 25);
             tbCodigoControl.TabIndex = 7;
@@ -153,7 +153,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 12F);
-            label1.Location = new Point(170, 104);
+            label1.Location = new Point(257, 112);
             label1.Name = "label1";
             label1.Size = new Size(57, 21);
             label1.TabIndex = 8;
@@ -163,7 +163,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 12F);
-            label2.Location = new Point(81, 189);
+            label2.Location = new Point(168, 197);
             label2.Name = "label2";
             label2.Size = new Size(154, 21);
             label2.TabIndex = 9;
@@ -173,7 +173,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 12F);
-            label3.Location = new Point(102, 322);
+            label3.Location = new Point(189, 330);
             label3.Name = "label3";
             label3.Size = new Size(133, 21);
             label3.TabIndex = 10;
@@ -183,7 +183,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 12F);
-            label4.Location = new Point(140, 364);
+            label4.Location = new Point(227, 372);
             label4.Name = "label4";
             label4.Size = new Size(95, 21);
             label4.TabIndex = 11;
@@ -193,7 +193,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 12F);
-            label5.Location = new Point(102, 410);
+            label5.Location = new Point(189, 418);
             label5.Name = "label5";
             label5.Size = new Size(133, 21);
             label5.TabIndex = 12;
@@ -203,7 +203,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 12F);
-            label6.Location = new Point(108, 451);
+            label6.Location = new Point(195, 459);
             label6.Name = "label6";
             label6.Size = new Size(119, 21);
             label6.TabIndex = 13;
@@ -216,7 +216,7 @@
             btRegistrar.FlatStyle = FlatStyle.Flat;
             btRegistrar.Font = new Font("Segoe UI", 11F);
             btRegistrar.ForeColor = SystemColors.ControlLightLight;
-            btRegistrar.Location = new Point(535, 649);
+            btRegistrar.Location = new Point(322, 608);
             btRegistrar.Name = "btRegistrar";
             btRegistrar.Size = new Size(143, 33);
             btRegistrar.TabIndex = 10;
@@ -236,11 +236,12 @@
             // tbNitUsuario
             // 
             tbNitUsuario.Font = new Font("Cascadia Mono SemiBold", 11.25F, FontStyle.Bold);
-            tbNitUsuario.Location = new Point(442, 7);
+            tbNitUsuario.Location = new Point(442, 5);
             tbNitUsuario.Name = "tbNitUsuario";
             tbNitUsuario.ReadOnly = true;
             tbNitUsuario.Size = new Size(211, 25);
             tbNitUsuario.TabIndex = 16;
+            tbNitUsuario.TextChanged += tbNitUsuario_TextChanged;
             // 
             // label7
             // 
@@ -280,7 +281,7 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(17, 608);
+            pictureBox1.Location = new Point(12, 608);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(128, 74);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
@@ -301,7 +302,7 @@
             // 
             lab.AutoSize = true;
             lab.Font = new Font("Segoe UI", 12F);
-            lab.Location = new Point(102, 143);
+            lab.Location = new Point(189, 151);
             lab.Name = "lab";
             lab.Size = new Size(125, 21);
             lab.TabIndex = 25;
@@ -310,7 +311,7 @@
             // tbNumFactura
             // 
             tbNumFactura.Font = new Font("Cascadia Mono SemiBold", 11.25F, FontStyle.Bold);
-            tbNumFactura.Location = new Point(250, 143);
+            tbNumFactura.Location = new Point(337, 151);
             tbNumFactura.Name = "tbNumFactura";
             tbNumFactura.Size = new Size(247, 25);
             tbNumFactura.TabIndex = 1;
@@ -319,7 +320,7 @@
             // 
             tbRazonSocial.AutoSize = true;
             tbRazonSocial.Font = new Font("Segoe UI", 12F);
-            tbRazonSocial.Location = new Point(62, 255);
+            tbRazonSocial.Location = new Point(149, 263);
             tbRazonSocial.Name = "tbRazonSocial";
             tbRazonSocial.Size = new Size(176, 21);
             tbRazonSocial.TabIndex = 27;
@@ -328,7 +329,7 @@
             // tbNombreRazon
             // 
             tbNombreRazon.CharacterCasing = CharacterCasing.Upper;
-            tbNombreRazon.Location = new Point(250, 253);
+            tbNombreRazon.Location = new Point(337, 261);
             tbNombreRazon.Multiline = true;
             tbNombreRazon.Name = "tbNombreRazon";
             tbNombreRazon.Size = new Size(247, 45);
@@ -339,7 +340,7 @@
             gbTipoDescargo.Controls.Add(rbTrimestral);
             gbTipoDescargo.Controls.Add(rbMensual);
             gbTipoDescargo.Font = new Font("Segoe UI", 11F);
-            gbTipoDescargo.Location = new Point(62, 516);
+            gbTipoDescargo.Location = new Point(131, 513);
             gbTipoDescargo.Name = "gbTipoDescargo";
             gbTipoDescargo.Size = new Size(522, 64);
             gbTipoDescargo.TabIndex = 28;
@@ -374,7 +375,7 @@
             cbMontoImponible.BackColor = SystemColors.Control;
             cbMontoImponible.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             cbMontoImponible.ForeColor = SystemColors.ControlText;
-            cbMontoImponible.Location = new Point(503, 416);
+            cbMontoImponible.Location = new Point(590, 424);
             cbMontoImponible.Name = "cbMontoImponible";
             cbMontoImponible.Size = new Size(15, 14);
             cbMontoImponible.TabIndex = 29;

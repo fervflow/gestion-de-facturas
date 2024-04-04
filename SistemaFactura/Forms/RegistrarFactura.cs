@@ -152,5 +152,10 @@ namespace SistemaFactura
         {
             tbMontoImponible.Text = tbMontoTotal.Text;
         }
+
+        private void tbNitUsuario_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
