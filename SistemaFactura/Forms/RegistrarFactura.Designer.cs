@@ -314,9 +314,11 @@
             // 
             tbNumFactura.Font = new Font("Cascadia Mono SemiBold", 11.25F, FontStyle.Bold);
             tbNumFactura.Location = new Point(337, 151);
+            tbNumFactura.MaxLength = 6;
             tbNumFactura.Name = "tbNumFactura";
             tbNumFactura.Size = new Size(247, 25);
             tbNumFactura.TabIndex = 1;
+            tbNumFactura.KeyPress += tbNumFactura_KeyPress;
             // 
             // tbRazonSocial
             // 

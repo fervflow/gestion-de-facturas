@@ -69,6 +69,8 @@
             tbNombreRazon.Name = "tbNombreRazon";
             tbNombreRazon.Size = new Size(400, 29);
             tbNombreRazon.TabIndex = 0;
+            tbNombreRazon.TextChanged += tbNombreRazon_TextChanged;
+            tbNombreRazon.KeyPress += tbNombreRazon_KeyPress;
             // 
             // btRegistrarse
             // 
@@ -146,7 +148,7 @@
             tbNit.Text = "000000000000";
             tbNit.TextAlign = HorizontalAlignment.Center;
             // 
-            // FormRegistrarUsuario
+            // RegistrarUsuario
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -160,7 +162,7 @@
             Controls.Add(lbNombreRazon);
             Controls.Add(panel1);
             MaximizeBox = false;
-            Name = "FormRegistrarUsuario";
+            Name = "RegistrarUsuario";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Registrarse";
             panel1.ResumeLayout(false);
