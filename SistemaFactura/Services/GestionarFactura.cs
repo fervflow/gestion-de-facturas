@@ -1,11 +1,13 @@
-﻿using SistemaFactura.Conexion;
+﻿using iTextSharp.text;
+using iTextSharp.text.pdf;
+using SistemaFactura.Conexion;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Data.SqlTypes;
-using System.Linq;
+using System.IO;
 using System.Text;
-using System.Threading.Tasks;
+
 
 namespace SistemaFactura.Services
 {
@@ -43,23 +45,75 @@ namespace SistemaFactura.Services
                     cmd.Parameters.AddWithValue("@TIPO_ESPECIFICO", tipo_especifico);
                     cmd.Parameters.AddWithValue("@TIPO_GENERAL", tipo_general);
 
-                    try
-                    {
-                        int rowsAffected = cmd.ExecuteNonQuery();
-                        return (rowsAffected > 0);
-                    }
-                    catch (SqlException ex)
-                    {
-                        MessageBox.Show("Error al registrar la factura:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return false;
-                    }
+                    int rowsAffected = cmd.ExecuteNonQuery();
+                    return (rowsAffected > 0);
                 }
             }
-            catch (Exception ex) {
-                MessageBox.Show("Error inesperado:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
+            catch (SqlException ex)
+            {
+                throw new Exception("Error al registrar la factura en la base de datos", ex);
             }
-            finally { database.cerrarBD(); }
+            finally
+            {
+                database.cerrarBD();
+            }
+        }
+
+        public void ExportarFacturaCSV(long nit_usuario, long nit_emisor, int numero_factura, string cod_autorizacion,
+    string nombre_razon, DateTime fecha_emision, decimal monto, decimal monto_imponible, string cod_control,
+    bool tipo_especifico, bool tipo_general, string filePath)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(filePath))
+                {
+                    throw new ArgumentNullException(nameof(filePath), "El argumento filePath no puede ser nulo o vacío");
+                }
+
+                // Crear o sobrescribir el archivo CSV
+                using (StreamWriter writer = new StreamWriter(filePath, false, Encoding.UTF8))
+                {
+                    // Escribir encabezados
+                    writer.WriteLine("NitUsuario,NitEmisor,NumeroFactura,CodAutorizacion,NombreRazon,FechaEmision,Monto,MontoImponible,CodControl,TipoEspecifico,TipoGeneral");
+
+                    // Escribir los datos de la factura
+                    writer.WriteLine($"{nit_usuario},{nit_emisor},{numero_factura},{cod_autorizacion},{nombre_razon},{fecha_emision},{monto},{monto_imponible},{cod_control},{tipo_especifico},{tipo_general}");
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al exportar la factura a CSV", ex);
+            }
+        }
+
+
+        public void ConvertirCSVaPDF(string csvFilePath, string pdfFilePath)
+        {
+            try
+            {
+                // Leer los datos del archivo CSV
+                string csvData = File.ReadAllText(csvFilePath);
+
+                // Generar un documento PDF
+                // Aquí debes utilizar la lógica para generar el PDF a partir de los datos del CSV
+                // Esto podría requerir el uso de una biblioteca como iTextSharp o PdfSharp
+
+                // Ejemplo de cómo podrías usar iTextSharp para crear un PDF básico
+                using (FileStream stream = new FileStream(pdfFilePath, FileMode.Create))
+                {
+                    Document document = new Document();
+                    PdfWriter.GetInstance(document, stream);
+                    document.Open();
+
+                    // Aquí deberías procesar los datos del archivo CSV y agregarlos al documento PDF
+
+                    document.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al convertir el archivo CSV a PDF", ex);
+            }
         }
     }
 }

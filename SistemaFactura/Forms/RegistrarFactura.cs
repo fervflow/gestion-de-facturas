@@ -68,6 +68,10 @@ namespace SistemaFactura
                     cod_autorizacion, nombre_razon, fecha_emision, monto_total,
                     monto_imponible_money, cod_control, tipo_especifico, tipo_general))
                 {
+                    GestionarFactura gestionarFactura = new GestionarFactura();
+                    gestionarFactura.ExportarFacturaCSV(nit_usuario, nit_emisor, numero_factura,
+                    cod_autorizacion, nombre_razon, fecha_emision, monto_total,
+                    monto_imponible_money, cod_control, tipo_especifico, tipo_general, @"E:\csv\factura.csv");
                     MessageBox.Show("Factura registrada exitosamente!");
                 }
             }
