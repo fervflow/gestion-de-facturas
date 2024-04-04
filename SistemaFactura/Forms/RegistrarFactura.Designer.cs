@@ -60,6 +60,8 @@
             rbTrimestral = new RadioButton();
             rbMensual = new RadioButton();
             cbMontoImponible = new CheckBox();
+            label11 = new Label();
+            label12 = new Label();
             ((System.ComponentModel.ISupportInitialize)fileSystemWatcher1).BeginInit();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
@@ -337,12 +339,14 @@
             // 
             // gbTipoDescargo
             // 
+            gbTipoDescargo.Controls.Add(label11);
+            gbTipoDescargo.Controls.Add(label12);
             gbTipoDescargo.Controls.Add(rbTrimestral);
             gbTipoDescargo.Controls.Add(rbMensual);
             gbTipoDescargo.Font = new Font("Segoe UI", 11F);
             gbTipoDescargo.Location = new Point(131, 513);
             gbTipoDescargo.Name = "gbTipoDescargo";
-            gbTipoDescargo.Size = new Size(522, 64);
+            gbTipoDescargo.Size = new Size(563, 75);
             gbTipoDescargo.TabIndex = 28;
             gbTipoDescargo.TabStop = false;
             gbTipoDescargo.Text = "Tipo de Descargo:";
@@ -381,6 +385,24 @@
             cbMontoImponible.TabIndex = 29;
             cbMontoImponible.UseVisualStyleBackColor = false;
             cbMontoImponible.CheckedChanged += cbMontoImponible_CheckedChanged;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new Point(96, 52);
+            label11.Name = "label11";
+            label11.Size = new Size(201, 20);
+            label11.TabIndex = 30;
+            label11.Text = "*Sirve para el Formulario 200";
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Location = new Point(360, 52);
+            label12.Name = "label12";
+            label12.Size = new Size(201, 20);
+            label12.TabIndex = 31;
+            label12.Text = "*Sirve para el Formulario 500";
             // 
             // RegistrarFactura
             // 
@@ -459,5 +481,7 @@
         private RadioButton rbTrimestral;
         private RadioButton rbMensual;
         private CheckBox cbMontoImponible;
+        private Label label12;
+        private Label label11;
     }
 }
