@@ -28,7 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dataGridView1 = new DataGridView();
+            dgvListaFacturas = new DataGridView();
+            panel1 = new Panel();
+            label2 = new Label();
+            label1 = new Label();
+            btnBuscar = new Button();
+            dtpFecha = new DateTimePicker();
+            cbxTipo = new ComboBox();
             nombre_razon = new DataGridViewTextBoxColumn();
             nit_emisor = new DataGridViewTextBoxColumn();
             numero_factura = new DataGridViewTextBoxColumn();
@@ -38,36 +44,96 @@
             monto_imponible = new DataGridViewTextBoxColumn();
             cod_control = new DataGridViewTextBoxColumn();
             tipo_descargo = new DataGridViewTextBoxColumn();
-            panel1 = new Panel();
-            label2 = new Label();
-            label1 = new Label();
-            button1 = new Button();
-            dateTimePicker1 = new DateTimePicker();
-            comboBox1 = new ComboBox();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvListaFacturas).BeginInit();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
-            // dataGridView1
+            // dgvListaFacturas
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { nombre_razon, nit_emisor, numero_factura, cod_autorizacion, fecha_emision, monto, monto_imponible, cod_control, tipo_descargo });
-            dataGridView1.Location = new Point(12, 67);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(765, 435);
-            dataGridView1.TabIndex = 0;
+            dgvListaFacturas.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgvListaFacturas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvListaFacturas.Columns.AddRange(new DataGridViewColumn[] { nombre_razon, nit_emisor, numero_factura, cod_autorizacion, fecha_emision, monto, monto_imponible, cod_control, tipo_descargo });
+            dgvListaFacturas.Location = new Point(12, 67);
+            dgvListaFacturas.Name = "dgvListaFacturas";
+            dgvListaFacturas.Size = new Size(944, 432);
+            dgvListaFacturas.TabIndex = 0;
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.Orange;
+            panel1.Controls.Add(label2);
+            panel1.Controls.Add(label1);
+            panel1.Controls.Add(btnBuscar);
+            panel1.Controls.Add(dtpFecha);
+            panel1.Controls.Add(cbxTipo);
+            panel1.Dock = DockStyle.Top;
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(968, 61);
+            panel1.TabIndex = 1;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            label2.Location = new Point(380, 23);
+            label2.Name = "label2";
+            label2.Size = new Size(53, 20);
+            label2.TabIndex = 4;
+            label2.Text = "Fecha:";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            label1.Location = new Point(92, 23);
+            label1.Name = "label1";
+            label1.Size = new Size(44, 20);
+            label1.TabIndex = 3;
+            label1.Text = "Tipo:";
+            // 
+            // btnBuscar
+            // 
+            btnBuscar.FlatAppearance.BorderSize = 2;
+            btnBuscar.FlatStyle = FlatStyle.Flat;
+            btnBuscar.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnBuscar.ForeColor = SystemColors.ControlLightLight;
+            btnBuscar.Location = new Point(768, 16);
+            btnBuscar.Name = "btnBuscar";
+            btnBuscar.Size = new Size(100, 32);
+            btnBuscar.TabIndex = 2;
+            btnBuscar.Text = "BUSCAR";
+            btnBuscar.UseVisualStyleBackColor = true;
+            btnBuscar.Click += btnBuscar_Click;
+            // 
+            // dtpFecha
+            // 
+            dtpFecha.Location = new Point(439, 21);
+            dtpFecha.Name = "dtpFecha";
+            dtpFecha.Size = new Size(226, 23);
+            dtpFecha.TabIndex = 1;
+            // 
+            // cbxTipo
+            // 
+            cbxTipo.FormattingEnabled = true;
+            cbxTipo.Location = new Point(142, 20);
+            cbxTipo.Name = "cbxTipo";
+            cbxTipo.Size = new Size(163, 23);
+            cbxTipo.TabIndex = 0;
             // 
             // nombre_razon
             // 
             nombre_razon.HeaderText = "Nombre/Razón";
             nombre_razon.Name = "nombre_razon";
             nombre_razon.ReadOnly = true;
+            nombre_razon.Width = 180;
             // 
             // nit_emisor
             // 
             nit_emisor.HeaderText = "NIT";
             nit_emisor.Name = "nit_emisor";
             nit_emisor.ReadOnly = true;
+            nit_emisor.Width = 70;
             // 
             // numero_factura
             // 
@@ -77,112 +143,60 @@
             // 
             // cod_autorizacion
             // 
+            cod_autorizacion.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
             cod_autorizacion.HeaderText = "Cod. Autorización";
             cod_autorizacion.Name = "cod_autorizacion";
             cod_autorizacion.ReadOnly = true;
+            cod_autorizacion.Width = 116;
             // 
             // fecha_emision
             // 
             fecha_emision.HeaderText = "Fecha Emisión";
             fecha_emision.Name = "fecha_emision";
             fecha_emision.ReadOnly = true;
+            fecha_emision.Width = 70;
             // 
             // monto
             // 
-            monto.HeaderText = "Monto";
+            monto.HeaderText = "Monto Bs.";
             monto.Name = "monto";
             monto.ReadOnly = true;
+            monto.Width = 80;
             // 
             // monto_imponible
             // 
-            monto_imponible.HeaderText = "Monto Imponible";
+            monto_imponible.HeaderText = "Monto Imponible Bs.";
             monto_imponible.Name = "monto_imponible";
             monto_imponible.ReadOnly = true;
+            monto_imponible.Width = 80;
             // 
             // cod_control
             // 
+            cod_control.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
             cod_control.HeaderText = "Cod. Control";
             cod_control.Name = "cod_control";
             cod_control.ReadOnly = true;
+            cod_control.Width = 92;
             // 
             // tipo_descargo
             // 
             tipo_descargo.HeaderText = "Tipo Descargo";
             tipo_descargo.Name = "tipo_descargo";
             tipo_descargo.ReadOnly = true;
-            // 
-            // panel1
-            // 
-            panel1.BackColor = Color.Orange;
-            panel1.Controls.Add(label2);
-            panel1.Controls.Add(label1);
-            panel1.Controls.Add(button1);
-            panel1.Controls.Add(dateTimePicker1);
-            panel1.Controls.Add(comboBox1);
-            panel1.Dock = DockStyle.Top;
-            panel1.Location = new Point(0, 0);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(777, 61);
-            panel1.TabIndex = 1;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 11F);
-            label2.Location = new Point(317, 26);
-            label2.Name = "label2";
-            label2.Size = new Size(50, 20);
-            label2.TabIndex = 4;
-            label2.Text = "Fecha:";
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 11F);
-            label1.Location = new Point(37, 23);
-            label1.Name = "label1";
-            label1.Size = new Size(42, 20);
-            label1.TabIndex = 3;
-            label1.Text = "Tipo:";
-            // 
-            // button1
-            // 
-            button1.FlatAppearance.BorderSize = 2;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.ForeColor = SystemColors.ControlLightLight;
-            button1.Location = new Point(605, 14);
-            button1.Name = "button1";
-            button1.Size = new Size(100, 32);
-            button1.TabIndex = 2;
-            button1.Text = "BUSCAR";
-            button1.UseVisualStyleBackColor = true;
-            // 
-            // dateTimePicker1
-            // 
-            dateTimePicker1.Location = new Point(373, 21);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(200, 23);
-            dateTimePicker1.TabIndex = 1;
-            // 
-            // comboBox1
-            // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(85, 20);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(163, 23);
-            comboBox1.TabIndex = 0;
+            tipo_descargo.Width = 70;
             // 
             // ListarFacturas
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(777, 505);
+            ClientSize = new Size(968, 511);
             Controls.Add(panel1);
-            Controls.Add(dataGridView1);
+            Controls.Add(dgvListaFacturas);
+            MinimumSize = new Size(984, 550);
             Name = "ListarFacturas";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "ListarFacturas";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvListaFacturas).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);
@@ -190,12 +204,12 @@
 
         #endregion
 
-        private DataGridView dataGridView1;
+        private DataGridView dgvListaFacturas;
         private Panel panel1;
         private Label label1;
-        private Button button1;
-        private DateTimePicker dateTimePicker1;
-        private ComboBox comboBox1;
+        private Button btnBuscar;
+        private DateTimePicker dtpFecha;
+        private ComboBox cbxTipo;
         private Label label2;
         private DataGridViewTextBoxColumn nombre_razon;
         private DataGridViewTextBoxColumn nit_emisor;

@@ -107,7 +107,7 @@
             Controls.Add(panel1);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Menu";
-            StartPosition = FormStartPosition.CenterParent;
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Menu";
             panel1.ResumeLayout(false);
             pContenedor.ResumeLayout(false);

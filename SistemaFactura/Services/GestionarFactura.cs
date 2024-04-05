@@ -141,8 +141,8 @@ namespace SistemaFactura.Services
                                 reader["cod_autorizacion"].ToString(),
                                 reader["nombre_razon"].ToString(),
                                 Convert.ToDateTime(reader["fecha_emision"]),
-                                Convert.ToDecimal(reader["monto"]),
-                                Convert.ToDecimal(reader["monto_imponible"]),
+                                Decimal.Round(Convert.ToDecimal(reader["monto"]), 2),
+                                Decimal.Round(Convert.ToDecimal(reader["monto_imponible"]), 2),
                                 reader["cod_control"].ToString(),
                                 Convert.ToBoolean(reader["tipo_especifico"]),
                                 Convert.ToBoolean(reader["tipo_general"])
