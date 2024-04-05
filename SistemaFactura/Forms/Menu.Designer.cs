@@ -62,6 +62,7 @@
             btnVerLista.TabIndex = 15;
             btnVerLista.Text = "VER LISTA DE FACTURAS";
             btnVerLista.UseVisualStyleBackColor = false;
+            btnVerLista.Click += btnVerLista_Click;
             // 
             // btnRegistrarFact
             // 

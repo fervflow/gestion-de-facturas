@@ -39,6 +39,11 @@ namespace SistemaFactura.Forms
         {
             openChildForm(new RegistrarFactura(nit, nom));
         }
+
+        private void btnVerLista_Click(object sender, EventArgs e)
+        {
+            openChildForm(new ListarFacturas());
+        }
     }
 
 }
