@@ -56,7 +56,7 @@ namespace SistemaFactura.Forms
 
         private void btnVerLista_Click(object sender, EventArgs e)
         {
-            openChildForm(new ListarFacturas());
+            openChildForm(new ListarFacturas(nit));
         }
     }
 

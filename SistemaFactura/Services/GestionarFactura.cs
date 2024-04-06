@@ -31,23 +31,21 @@ namespace SistemaFactura.Services
                     "nombre_razon, fecha_emision, monto, monto_imponible, cod_control, tipo_especifico, tipo_general) " +
                     "VALUES(@NIT_USUARIO, @NIT_EMISOR, @NUMERO_FACTURA, @COD_AUTORIZACION, @NOMBRE_RAZON, @FECHA_EMISION, " +
                     "ROUND(@MONTO, 2), ROUND(@MONTO_IMPONIBLE, 2), @COD_CONTROL, @TIPO_ESPECIFICO, @TIPO_GENERAL)";
-                using (SqlCommand cmd = new SqlCommand(sql, database.con))
-                {
-                    cmd.Parameters.AddWithValue("@NIT_USUARIO", nit_usuario);
-                    cmd.Parameters.AddWithValue("@NIT_EMISOR", nit_emisor);
-                    cmd.Parameters.AddWithValue("@NUMERO_FACTURA", numero_factura);
-                    cmd.Parameters.AddWithValue("@COD_AUTORIZACION", cod_autorizacion);
-                    cmd.Parameters.AddWithValue("@NOMBRE_RAZON", nombre_razon);
-                    cmd.Parameters.AddWithValue("@FECHA_EMISION", fecha_emision);
-                    cmd.Parameters.AddWithValue("@MONTO", monto);
-                    cmd.Parameters.AddWithValue("@MONTO_IMPONIBLE", monto_imponible);
-                    cmd.Parameters.AddWithValue("@COD_CONTROL", cod_control);
-                    cmd.Parameters.AddWithValue("@TIPO_ESPECIFICO", tipo_especifico);
-                    cmd.Parameters.AddWithValue("@TIPO_GENERAL", tipo_general);
+                using SqlCommand cmd = new SqlCommand(sql, database.con);
+                cmd.Parameters.AddWithValue("@NIT_USUARIO", nit_usuario);
+                cmd.Parameters.AddWithValue("@NIT_EMISOR", nit_emisor);
+                cmd.Parameters.AddWithValue("@NUMERO_FACTURA", numero_factura);
+                cmd.Parameters.AddWithValue("@COD_AUTORIZACION", cod_autorizacion);
+                cmd.Parameters.AddWithValue("@NOMBRE_RAZON", nombre_razon);
+                cmd.Parameters.AddWithValue("@FECHA_EMISION", fecha_emision);
+                cmd.Parameters.AddWithValue("@MONTO", monto);
+                cmd.Parameters.AddWithValue("@MONTO_IMPONIBLE", monto_imponible);
+                cmd.Parameters.AddWithValue("@COD_CONTROL", cod_control);
+                cmd.Parameters.AddWithValue("@TIPO_ESPECIFICO", tipo_especifico);
+                cmd.Parameters.AddWithValue("@TIPO_GENERAL", tipo_general);
 
-                    int rowsAffected = cmd.ExecuteNonQuery();
-                    return (rowsAffected > 0);
-                }
+                int rowsAffected = cmd.ExecuteNonQuery();
+                return (rowsAffected > 0);
             }
             catch (SqlException ex)
             {
@@ -57,6 +55,76 @@ namespace SistemaFactura.Services
             {
                 database.cerrarBD();
             }
+        }
+
+        public List<Factura> ListaFacturas(long nit_usuario, int tipo, DateTime intervalo)
+        {
+            List<Factura> facturas = new List<Factura>();
+            try
+            {
+                database.conectarBD();
+                string sql = "SELECT nit_usuario, nit_emisor, numero_factura, cod_autorizacion, nombre_razon, " +
+                    "fecha_emision, monto, monto_imponible, cod_control, tipo_especifico, tipo_general " +
+                    "FROM factura WHERE nit_usuario = @NIT_USUARIO";
+
+                using SqlCommand cmd = new SqlCommand(sql, database.con);
+                cmd.Parameters.AddWithValue("@NIT_USUARIO", nit_usuario);
+
+                switch (tipo)
+                {
+                    case 0:
+                        string fecha_dia = intervalo.ToString("yyyy-MM-dd");
+                        sql += " AND fecha_emision = @FECHA_DIA";
+                        cmd.Parameters.AddWithValue("@FECHA_DIA", fecha_dia);
+                        break;
+                    case 1:
+                        int year = intervalo.Year;
+                        int month = intervalo.Month;
+                        sql += " AND YEAR(fecha_emision) = @YEAR AND MONTH(fecha_emision) = @MONTH";
+                        cmd.Parameters.AddWithValue("@YEAR", year);
+                        cmd.Parameters.AddWithValue("@MONTH", month);
+                        break;
+                    case 2:
+                        int year_q = intervalo.Year;
+                        int month_q = (intervalo.Month - 1) / 3 + 1;
+                        int month_start, month_end;
+                        month_start = month_q * 3 - 2;
+                        month_end = month_q * 3;
+                        sql += " AND YEAR(fecha_emision) = @YEAR AND MONTH(fecha_emision) BETWEEN @MONTH_START AND @MONTH_END";
+                        cmd.Parameters.AddWithValue("@YEAR", year_q);
+                        cmd.Parameters.AddWithValue("@MONTH_START", month_start);
+                        cmd.Parameters.AddWithValue("@MONTH_END", month_end);
+                        break;
+                }
+                sql += " ORDER BY fecha_emision DESC";
+                cmd.CommandText = sql;
+
+                using SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    Factura factura = new Factura(
+                        Convert.ToInt64(reader["nit_usuario"]),
+                        Convert.ToInt64(reader["nit_emisor"]),
+                        Convert.ToInt32(reader["numero_factura"]),
+                        reader["cod_autorizacion"].ToString(),
+                        reader["nombre_razon"].ToString(),
+                        Convert.ToDateTime(reader["fecha_emision"]),
+                        Decimal.Round(Convert.ToDecimal(reader["monto"]), 2),
+                        Decimal.Round(Convert.ToDecimal(reader["monto_imponible"]), 2),
+                        reader["cod_control"].ToString(),
+                        Convert.ToBoolean(reader["tipo_especifico"]),
+                        Convert.ToBoolean(reader["tipo_general"])
+                    );
+
+                    facturas.Add(factura);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al obtener la lista de facturas: " + ex.Message);
+            }
+            finally { database.cerrarBD(); }
+            return facturas;
         }
 
         public void ExportarFacturaCSV(long nit_usuario, long nit_emisor, int numero_factura, string cod_autorizacion,
@@ -116,49 +184,6 @@ namespace SistemaFactura.Services
             }
         }
 
-        public List<Factura> ListaFacturas(long nit_usuario)
-        {
-            List<Factura> facturas = new List<Factura>();
-            try
-            {
-                database.conectarBD();
-                string sql = "SELECT nit_usuario, nit_emisor, numero_factura, cod_autorizacion, nombre_razon, " +
-                    "fecha_emision, monto, monto_imponible, cod_control, tipo_especifico, tipo_general " +
-                    "FROM factura WHERE nit_usuario = @NIT_USUARIO";
-                
-                using (SqlCommand cmd = new SqlCommand(sql, database.con))
-                {
-                    cmd.Parameters.AddWithValue("@NIT_USUARIO", nit_usuario);
-
-                    using (SqlDataReader reader = cmd.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            Factura factura = new Factura(
-                                Convert.ToInt64(reader["nit_usuario"]),
-                                Convert.ToInt64(reader["nit_emisor"]),
-                                Convert.ToInt32(reader["numero_factura"]),
-                                reader["cod_autorizacion"].ToString(),
-                                reader["nombre_razon"].ToString(),
-                                Convert.ToDateTime(reader["fecha_emision"]),
-                                Decimal.Round(Convert.ToDecimal(reader["monto"]), 2),
-                                Decimal.Round(Convert.ToDecimal(reader["monto_imponible"]), 2),
-                                reader["cod_control"].ToString(),
-                                Convert.ToBoolean(reader["tipo_especifico"]),
-                                Convert.ToBoolean(reader["tipo_general"])
-                            );
-
-                            facturas.Add(factura);
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al obtener la lista de facturas: " + ex.Message);
-            }
-            finally { database.cerrarBD(); }
-            return facturas;
-        }
+        
     }
 }
