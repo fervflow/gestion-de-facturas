@@ -25,8 +25,8 @@ namespace SistemaFactura
 
         private void btRegistrar_Click(object sender, EventArgs e)
         {
-            long nit_emisor = long.Parse(tbNit.Text);
-            int numero_factura = int.Parse(tbNumFactura.Text);
+            long nit_emisor = long.Parse(String.IsNullOrWhiteSpace(tbNit.Text) ? "0" : tbNit.Text);
+            int numero_factura = int.Parse(String.IsNullOrWhiteSpace(tbNumFactura.Text) ? "0" : tbNumFactura.Text);
             string cod_autorizacion = tbAutorizacion.Text;
             string nombre_razon = tbNombreRazon.Text;
             DateTime fecha_emision = dtFecha.Value.Date;
@@ -68,10 +68,10 @@ namespace SistemaFactura
                     cod_autorizacion, nombre_razon, fecha_emision, monto_total,
                     monto_imponible_money, cod_control, tipo_especifico, tipo_general))
                 {
-                    GestionarFactura gestionarFactura = new GestionarFactura();
-                    gestionarFactura.ExportarFacturaCSV(nit_usuario, nit_emisor, numero_factura,
-                    cod_autorizacion, nombre_razon, fecha_emision, monto_total,
-                    monto_imponible_money, cod_control, tipo_especifico, tipo_general, @"E:\csv\factura.csv");
+                    //GestionarFactura gestionarFactura = new GestionarFactura();
+                    //gestionarFactura.ExportarFacturaCSV(nit_usuario, nit_emisor, numero_factura,
+                    //cod_autorizacion, nombre_razon, fecha_emision, monto_total,
+                    //monto_imponible_money, cod_control, tipo_especifico, tipo_general, @"E:\csv\factura.csv");
                     MessageBox.Show("Factura registrada exitosamente!");
                 }
             }
@@ -142,11 +142,13 @@ namespace SistemaFactura
             if (cbMontoImponible.Checked)
             {
                 tbMontoImponible.Enabled = true;
+                tbMontoImponible.ReadOnly = false;
                 tbMontoTotal.TextChanged -= tbMontoTotal_TextChanged;
             }
             else
             {
                 tbMontoImponible.Enabled = false;
+                tbMontoImponible.ReadOnly = true;
                 tbMontoImponible.Text = tbMontoTotal.Text;
                 tbMontoTotal.TextChanged += tbMontoTotal_TextChanged;
             }
@@ -203,6 +205,11 @@ namespace SistemaFactura
                 e.Handled = true;
                 return;
             }
+        }
+
+        private void RegistrarFactura_Load(object sender, EventArgs e)
+        {
+            tbMontoTotal.Text = tbMontoImponible.Text = 0.ToString("N2");
         }
     }
 }
