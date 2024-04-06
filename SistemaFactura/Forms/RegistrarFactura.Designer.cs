@@ -81,7 +81,7 @@
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(704, 42);
+            panel1.Size = new Size(714, 42);
             panel1.TabIndex = 0;
             // 
             // lbTitulo
@@ -102,7 +102,7 @@
             tbNit.Font = new Font("Cascadia Mono SemiBold", 11.25F, FontStyle.Bold);
             tbNit.Location = new Point(336, 81);
             tbNit.Name = "tbNit";
-            tbNit.Size = new Size(235, 25);
+            tbNit.Size = new Size(214, 25);
             tbNit.TabIndex = 0;
             tbNit.KeyPress += tbNit_KeyPress;
             // 
@@ -114,7 +114,7 @@
             tbAutorizacion.Location = new Point(336, 166);
             tbAutorizacion.Multiline = true;
             tbAutorizacion.Name = "tbAutorizacion";
-            tbAutorizacion.Size = new Size(235, 48);
+            tbAutorizacion.Size = new Size(214, 48);
             tbAutorizacion.TabIndex = 2;
             tbAutorizacion.KeyPress += tbAutorizacion_KeyPress;
             // 
@@ -123,7 +123,7 @@
             dtFecha.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             dtFecha.Location = new Point(337, 299);
             dtFecha.Name = "dtFecha";
-            dtFecha.Size = new Size(234, 23);
+            dtFecha.Size = new Size(213, 23);
             dtFecha.TabIndex = 4;
             // 
             // tbMontoTotal
@@ -132,8 +132,9 @@
             tbMontoTotal.Font = new Font("Cascadia Mono SemiBold", 11.25F, FontStyle.Bold);
             tbMontoTotal.Location = new Point(337, 345);
             tbMontoTotal.Name = "tbMontoTotal";
-            tbMontoTotal.Size = new Size(234, 25);
+            tbMontoTotal.Size = new Size(213, 25);
             tbMontoTotal.TabIndex = 5;
+            tbMontoTotal.TextAlign = HorizontalAlignment.Right;
             tbMontoTotal.TextChanged += tbMontoTotal_TextChanged;
             tbMontoTotal.Enter += tbMoney_Enter;
             tbMontoTotal.KeyDown += tbMoney_KeyDown;
@@ -147,8 +148,9 @@
             tbMontoImponible.Location = new Point(337, 387);
             tbMontoImponible.Name = "tbMontoImponible";
             tbMontoImponible.ReadOnly = true;
-            tbMontoImponible.Size = new Size(234, 25);
+            tbMontoImponible.Size = new Size(213, 25);
             tbMontoImponible.TabIndex = 6;
+            tbMontoImponible.TextAlign = HorizontalAlignment.Right;
             tbMontoImponible.Enter += tbMoney_Enter;
             tbMontoImponible.KeyDown += tbMoney_KeyDown;
             tbMontoImponible.KeyPress += tbMoney_KeyPress;
@@ -160,7 +162,7 @@
             tbCodigoControl.Font = new Font("Cascadia Mono SemiBold", 11.25F, FontStyle.Bold);
             tbCodigoControl.Location = new Point(337, 432);
             tbCodigoControl.Name = "tbCodigoControl";
-            tbCodigoControl.Size = new Size(234, 25);
+            tbCodigoControl.Size = new Size(213, 25);
             tbCodigoControl.TabIndex = 7;
             tbCodigoControl.TextChanged += tbCodigoControl_TextChanged;
             tbCodigoControl.KeyPress += tbCodigoControl_KeyPress;
@@ -241,7 +243,7 @@
             btRegistrar.ForeColor = SystemColors.ControlLightLight;
             btRegistrar.Location = new Point(270, 569);
             btRegistrar.Name = "btRegistrar";
-            btRegistrar.Size = new Size(166, 33);
+            btRegistrar.Size = new Size(145, 33);
             btRegistrar.TabIndex = 10;
             btRegistrar.Text = "Registrar Factura";
             btRegistrar.UseVisualStyleBackColor = false;
@@ -253,7 +255,7 @@
             tbNombreUsuario.CharacterCasing = CharacterCasing.Upper;
             tbNombreUsuario.Enabled = false;
             tbNombreUsuario.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-            tbNombreUsuario.Location = new Point(132, 8);
+            tbNombreUsuario.Location = new Point(146, 8);
             tbNombreUsuario.Name = "tbNombreUsuario";
             tbNombreUsuario.ReadOnly = true;
             tbNombreUsuario.Size = new Size(237, 27);
@@ -277,7 +279,7 @@
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             label7.ForeColor = SystemColors.ControlLightLight;
-            label7.Location = new Point(375, 5);
+            label7.Location = new Point(63, 5);
             label7.Name = "label7";
             label7.Size = new Size(77, 33);
             label7.TabIndex = 17;
@@ -289,7 +291,7 @@
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             label8.ForeColor = SystemColors.ControlLightLight;
-            label8.Location = new Point(63, 5);
+            label8.Location = new Point(389, 5);
             label8.Name = "label8";
             label8.Size = new Size(63, 33);
             label8.TabIndex = 18;
@@ -301,7 +303,7 @@
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(6, 48);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(115, 74);
+            pictureBox1.Size = new Size(94, 74);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 20;
             pictureBox1.TabStop = false;
@@ -335,7 +337,7 @@
             tbNumFactura.Location = new Point(337, 122);
             tbNumFactura.MaxLength = 6;
             tbNumFactura.Name = "tbNumFactura";
-            tbNumFactura.Size = new Size(234, 25);
+            tbNumFactura.Size = new Size(213, 25);
             tbNumFactura.TabIndex = 1;
             tbNumFactura.KeyPress += tbNumFactura_KeyPress;
             // 
@@ -357,7 +359,7 @@
             tbNombreRazon.Location = new Point(337, 232);
             tbNombreRazon.Multiline = true;
             tbNombreRazon.Name = "tbNombreRazon";
-            tbNombreRazon.Size = new Size(234, 45);
+            tbNombreRazon.Size = new Size(213, 45);
             tbNombreRazon.TabIndex = 3;
             tbNombreRazon.KeyPress += tbNombreRazon_KeyPress;
             // 
@@ -371,7 +373,7 @@
             gbTipoDescargo.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             gbTipoDescargo.Location = new Point(149, 477);
             gbTipoDescargo.Name = "gbTipoDescargo";
-            gbTipoDescargo.Size = new Size(468, 75);
+            gbTipoDescargo.Size = new Size(470, 75);
             gbTipoDescargo.TabIndex = 28;
             gbTipoDescargo.TabStop = false;
             gbTipoDescargo.Text = "Tipo de Descargo:";
@@ -422,12 +424,11 @@
             // 
             // cbMontoImponible
             // 
-            cbMontoImponible.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             cbMontoImponible.AutoSize = true;
             cbMontoImponible.BackColor = SystemColors.Control;
             cbMontoImponible.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             cbMontoImponible.ForeColor = SystemColors.ControlText;
-            cbMontoImponible.Location = new Point(590, 395);
+            cbMontoImponible.Location = new Point(562, 394);
             cbMontoImponible.Name = "cbMontoImponible";
             cbMontoImponible.Size = new Size(15, 14);
             cbMontoImponible.TabIndex = 29;
@@ -438,15 +439,15 @@
             // 
             flowLayoutPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             flowLayoutPanel1.BackColor = Color.Orange;
-            flowLayoutPanel1.Controls.Add(label8);
-            flowLayoutPanel1.Controls.Add(tbNombreUsuario);
             flowLayoutPanel1.Controls.Add(label7);
+            flowLayoutPanel1.Controls.Add(tbNombreUsuario);
+            flowLayoutPanel1.Controls.Add(label8);
             flowLayoutPanel1.Controls.Add(tbNitUsuario);
-            flowLayoutPanel1.Location = new Point(0, 613);
+            flowLayoutPanel1.Location = new Point(0, 619);
             flowLayoutPanel1.Margin = new Padding(0, 0, 0, 10);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.Padding = new Padding(60, 5, 5, 5);
-            flowLayoutPanel1.Size = new Size(704, 41);
+            flowLayoutPanel1.Size = new Size(714, 41);
             flowLayoutPanel1.TabIndex = 30;
             // 
             // RegistrarFactura
@@ -454,7 +455,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
-            ClientSize = new Size(704, 654);
+            ClientSize = new Size(714, 661);
             Controls.Add(flowLayoutPanel1);
             Controls.Add(cbMontoImponible);
             Controls.Add(gbTipoDescargo);
@@ -478,9 +479,10 @@
             Controls.Add(tbAutorizacion);
             Controls.Add(tbNit);
             Controls.Add(panel1);
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Icon = (Icon)resources.GetObject("$this.Icon");
-            MaximumSize = new Size(720, 693);
-            MinimumSize = new Size(720, 693);
+            MaximumSize = new Size(730, 700);
+            MinimumSize = new Size(730, 700);
             Name = "RegistrarFactura";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Registrar Factura";
