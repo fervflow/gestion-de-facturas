@@ -1,4 +1,6 @@
-﻿using SistemaFactura.Services;
+﻿using SistemaFactura.Creators;
+using SistemaFactura.Models;
+using SistemaFactura.Services;
 
 namespace SistemaFactura
 {
@@ -11,7 +13,7 @@ namespace SistemaFactura
             InitializeComponent();
             tbNombreUsuario.Text = nombre;
             tbNitUsuario.Text = nit.ToString();
-            gestionarFactura = new GestionarFactura();
+            //gestionarFactura = new GestionarFactura();
             this.nit_usuario = nit;
         }
 
@@ -64,9 +66,13 @@ namespace SistemaFactura
                 decimal monto_total = decimal.Parse(monto);
                 decimal monto_imponible_money = decimal.Parse(monto_imponible);
 
-                if (gestionarFactura.Registrar(nit_usuario, nit_emisor, numero_factura,
+                gestionarFactura = new CreatorFacturaGenerica();
+
+                var factura = gestionarFactura.Create(nit_usuario, nit_emisor, numero_factura,
                     cod_autorizacion, nombre_razon, fecha_emision, monto_total,
-                    monto_imponible_money, cod_control, tipo_especifico, tipo_general))
+                    monto_imponible_money, cod_control, tipo_especifico, tipo_general);
+
+                if (gestionarFactura.Registrar(factura))
                 {
                     //GestionarFactura gestionarFactura = new GestionarFactura();
                     //gestionarFactura.ExportarFacturaCSV(nit_usuario, nit_emisor, numero_factura,

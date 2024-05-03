@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SistemaFactura.Services
+namespace SistemaFactura.Models
 {
-    internal class Factura
+    internal class FacturaGenerica : IFactura
     {
         public long nit_usuario { get; set; }
         public long nit_emisor { get; set; }
@@ -20,14 +20,14 @@ namespace SistemaFactura.Services
         public bool tipo_especifico { get; set; }
         public bool tipo_general { get; set; }
 
-        public Factura(long nit_usuario, long nit_emisor, int numero_factura, string cod_autorizacion,
+        public FacturaGenerica(long nit_usuario, long nit_emisor, int numero_factura, string cod_autorizacion,
             string nombre_razon, DateTime fecha_emision, decimal monto, decimal monto_imponible,
             string cod_control, bool tipo_especifico, bool tipo_general)
         {
             this.nit_usuario = nit_usuario;
             this.nit_emisor = nit_emisor;
             this.numero_factura = numero_factura;
-            
+
             this.cod_autorizacion = cod_autorizacion;
 
             this.nombre_razon = nombre_razon;
@@ -39,7 +39,7 @@ namespace SistemaFactura.Services
             this.tipo_especifico = tipo_especifico;
             this.tipo_general = tipo_general;
         }
-      
-        public Factura() { }
+
+        //public FacturaGenerica() { }
     }
 }

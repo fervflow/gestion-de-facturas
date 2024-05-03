@@ -1,4 +1,5 @@
-﻿using SistemaFactura.Services;
+﻿using SistemaFactura.Models;
+using SistemaFactura.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -33,11 +34,11 @@ namespace SistemaFactura.Forms
             dgvListaFacturas.Rows.Clear();
             cbMensual.Checked = cbTrimestral.Checked = false;
             DateTime intervalo = dtpFecha.Value;
-            List<Factura> facturas = gestionarFactura.ListaFacturas(nit_usuario, cbxTipo.SelectedIndex, intervalo);
+            List<IFactura> facturas = gestionarFactura.ListaFacturas(nit_usuario, cbxTipo.SelectedIndex, intervalo);
 
             if (facturas.Count != 0)
             {
-                foreach (Factura factura in facturas)
+                foreach (IFactura factura in facturas)
                 {
                     string tipoDescargoValue = factura.tipo_especifico ? "Mensual" : factura.tipo_general ? "Trimestral" : "";
                     string dateOnly = factura.fecha_emision.ToString("ddd dd MMM yyyy");

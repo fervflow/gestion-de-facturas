@@ -1,6 +1,7 @@
 ﻿using iTextSharp.text;
 using iTextSharp.text.pdf;
 using SistemaFactura.Conexion;
+using SistemaFactura.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -11,7 +12,7 @@ using System.Text;
 
 namespace SistemaFactura.Services
 {
-    internal class GestionarFactura
+    abstract class GestionarFactura
     {
         private Database database;
         public GestionarFactura()
@@ -19,9 +20,16 @@ namespace SistemaFactura.Services
             database = new Database();
         }
 
-        public bool Registrar(long nit_usuario, long nit_emisor, int numero_factura, string cod_autorizacion,
-            string nombre_razon, DateTime fecha_emision, decimal monto, decimal monto_imponible, string cod_control,
-            bool tipo_especifico, bool tipo_general)
+        public abstract IFactura Create(long nit_usuario, long nit_emisor, int numero_factura, string cod_autorizacion,
+            string nombre_razon, DateTime fecha_emision, decimal monto, decimal monto_imponible,
+            string cod_control, bool tipo_especifico, bool tipo_general);
+        
+
+        //public bool Registrar(long nit_usuario, long nit_emisor, int numero_factura, string cod_autorizacion,
+        //    string nombre_razon, DateTime fecha_emision, decimal monto, decimal monto_imponible, string cod_control,
+        //    bool tipo_especifico, bool tipo_general)
+        //{
+        public bool Registrar(IFactura factura)
         {
             try
             {
@@ -32,20 +40,20 @@ namespace SistemaFactura.Services
                     "VALUES(@NIT_USUARIO, @NIT_EMISOR, @NUMERO_FACTURA, @COD_AUTORIZACION, @NOMBRE_RAZON, @FECHA_EMISION, " +
                     "ROUND(@MONTO, 2), ROUND(@MONTO_IMPONIBLE, 2), @COD_CONTROL, @TIPO_ESPECIFICO, @TIPO_GENERAL)";
                 using SqlCommand cmd = new SqlCommand(sql, database.con);
-                cmd.Parameters.AddWithValue("@NIT_USUARIO", nit_usuario);
-                cmd.Parameters.AddWithValue("@NIT_EMISOR", nit_emisor);
-                cmd.Parameters.AddWithValue("@NUMERO_FACTURA", numero_factura);
-                cmd.Parameters.AddWithValue("@COD_AUTORIZACION", cod_autorizacion);
-                cmd.Parameters.AddWithValue("@NOMBRE_RAZON", nombre_razon);
-                cmd.Parameters.AddWithValue("@FECHA_EMISION", fecha_emision);
-                cmd.Parameters.AddWithValue("@MONTO", monto);
-                cmd.Parameters.AddWithValue("@MONTO_IMPONIBLE", monto_imponible);
-                cmd.Parameters.AddWithValue("@COD_CONTROL", cod_control);
-                cmd.Parameters.AddWithValue("@TIPO_ESPECIFICO", tipo_especifico);
-                cmd.Parameters.AddWithValue("@TIPO_GENERAL", tipo_general);
+                cmd.Parameters.AddWithValue("@NIT_USUARIO", factura.nit_usuario);
+                cmd.Parameters.AddWithValue("@NIT_EMISOR", factura.nit_emisor);
+                cmd.Parameters.AddWithValue("@NUMERO_FACTURA", factura.numero_factura);
+                cmd.Parameters.AddWithValue("@COD_AUTORIZACION", factura.cod_autorizacion);
+                cmd.Parameters.AddWithValue("@NOMBRE_RAZON", factura.nombre_razon);
+                cmd.Parameters.AddWithValue("@FECHA_EMISION", factura.fecha_emision);
+                cmd.Parameters.AddWithValue("@MONTO", factura.monto);
+                cmd.Parameters.AddWithValue("@MONTO_IMPONIBLE", factura.monto_imponible);
+                cmd.Parameters.AddWithValue("@COD_CONTROL", factura.cod_control);
+                cmd.Parameters.AddWithValue("@TIPO_ESPECIFICO", factura.tipo_especifico);
+                cmd.Parameters.AddWithValue("@TIPO_GENERAL", factura.tipo_general);
 
                 int rowsAffected = cmd.ExecuteNonQuery();
-                return (rowsAffected > 0);
+                return rowsAffected > 0;
             }
             catch (SqlException ex)
             {
@@ -57,9 +65,9 @@ namespace SistemaFactura.Services
             }
         }
 
-        public List<Factura> ListaFacturas(long nit_usuario, int tipo, DateTime intervalo)
+        public List<IFactura> ListaFacturas(long nit_usuario, int tipo, DateTime intervalo)
         {
-            List<Factura> facturas = new List<Factura>();
+            List<IFactura> facturas = [];
             try
             {
                 database.conectarBD();
@@ -102,15 +110,15 @@ namespace SistemaFactura.Services
                 using SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    Factura factura = new Factura(
+                    var factura = Create(
                         Convert.ToInt64(reader["nit_usuario"]),
                         Convert.ToInt64(reader["nit_emisor"]),
                         Convert.ToInt32(reader["numero_factura"]),
                         reader["cod_autorizacion"].ToString(),
                         reader["nombre_razon"].ToString(),
                         Convert.ToDateTime(reader["fecha_emision"]),
-                        Decimal.Round(Convert.ToDecimal(reader["monto"]), 2),
-                        Decimal.Round(Convert.ToDecimal(reader["monto_imponible"]), 2),
+                        decimal.Round(Convert.ToDecimal(reader["monto"]), 2),
+                        decimal.Round(Convert.ToDecimal(reader["monto_imponible"]), 2),
                         reader["cod_control"].ToString(),
                         Convert.ToBoolean(reader["tipo_especifico"]),
                         Convert.ToBoolean(reader["tipo_general"])
